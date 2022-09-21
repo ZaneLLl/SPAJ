@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"href="https://fonts.google.com/specimen/Koulen" rel="stylesheet">
+    <link rel="stylesheet"href="{% static 'css/styles.css'%}">
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:8000/">Home</a></li>
+                <li><a href="polls/">Aplicativos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "container"> 
+        {% block content %} {% endblock content %}
+</body>
+</html>

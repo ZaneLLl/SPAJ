@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    color: rgb(163, 39, 39);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 172%;
+}
+
+nav ul{
+    text-align: center;
+    background-color: aqua;
+}
+
+nav a:hover{
+    color: rgba(16, 46, 110, 0.521);
+}
+
+nav li{
+    display: inline;
+}
+
+nav li a{
+    display: inline-block;
+    color: black;
+    padding: 14px, 16px;
+    text-decoration: none;
+}
+
