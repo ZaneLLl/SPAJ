@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+</head>
+
+{% block content %}
+    <h1 class = "text-center"> Cadastrar Fichas para jogo</h1>
+    <form enctype="multipart/form-data"action="submit", method="POST">{% csrf_token %}
+        <div class = "container">
+            <div class="form-group">
+                    <label>Nome do personagem:</label>
+                        <input class="form-control" name="nomep" type="text">
+                    <label>Historia do Personagem:</label>
+                <textarea class="form-control" rows="5" name="Historia"></textarea>
+                <div class = "container">
+                    <label for="LVL">LVL:</label>
+                        <select id="LVL" name="LVL">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                </div>
+                    <div class = "container">
+                        <label for="VIT">Vitalidade:</label>
+                        <select id="VIT" name="VIT">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                    </div>
+                        <div class = "container">
+                        <label for="PER">Percepção:</label>
+                        <select id="PER" name="PER">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        </div>
+                <div class = "container">
+                        <label for="CTF">CTF:</label>
+                        <select id="CTF" name="CTF">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                     <div class = "container">
+                        <label for="CON">Contituição:</label>
+                        <select id="CON" name="CON">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                    <div class = "container">
+                        <label for="AGL">Agilidade:</label>
+                        <select id="AGL" name="CTF">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                        </div>
+                    <div class = "container">
+                        <label for="SAB">Sabedoria:</label>
+                        <select id="SAB" name="SAB">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                     <div class = "container">
+                        <label for="DES">Destreza:</label>
+                        <select id="DES" name="DES">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                   </div>
+                 <div class = "container">
+                  <label for="CAR">Carisma:</label>
+                        <select id="CAR" name="CAR">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                        </select>
+                 </div>
+                        <button class="btn btn-primary" type="submit"> Cadastrar </button>
+        </div>
+        </div>
+        </div>
+    </form>
+
+{% endblock %}
