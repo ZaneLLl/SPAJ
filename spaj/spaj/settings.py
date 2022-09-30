@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'forms.apps.FormsConfig',
     'Home.apps.HomeConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,10 +69,13 @@ WSGI_APPLICATION = 'spaj.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'spajbd',
+            'NAME': 'spajbd2',
             'USER': 'root',
             'HOST':'localhost',
             'PORT':'3306',
+            'OPTIONS': {
+            'init_command': 'SET default_storage_engine=INNODB',
+            }
     }
 }
 
