@@ -21,9 +21,9 @@
     </head>
     <body>
         <header style="color: #f2f2f2">
-            <img style="float: left;" class="dragao-header" src="imagens/dragao-header.png">
+            <img style="float: left;" class="dragao-header" src=" {% static 'imagens/dragao-header.png' %}">
             SPAJ
-            <img style="float: right;" class="dragao-header" src="./imagens/dragao-header-2.png">
+            <img style="float: right;" class="dragao-header" src=" {% static 'imagens/dragao-header-2.png' %}">
         </header>
         <section>
             <div class="box-1">
@@ -36,7 +36,7 @@
                         <a href="pag-SPAJ"><button class="bt-3">Sobre o Projeto SPAJ</button></a> <br>
                     </div>
                     <aside>
-                        <img id= dado_img src="./imagens/d20_zps81aed66c1 1.png">
+                        <img id= dado_img src="{% static '/imagens/d20_zps81aed66c1 1.png'%}">
                     </aside>
             </div>
 
@@ -56,9 +56,9 @@
             </div>
         </section>
         <footer>
-            <img  style="float: left;" src="./imagens/image 10.png">
+            <img  style="float: left;" src="{% static 'imagens/image 10.png'%}">
             SPAJ | 2022
-            <img  style="float: right;" src="./imagens/image 11.png">
+            <img  style="float: right;" src="{% static 'imagens/image 11.png'%}">
         </footer>
     </body>
     </html>

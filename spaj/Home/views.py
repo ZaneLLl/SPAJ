@@ -5,10 +5,28 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.db.models import Q
 
-class HomeListView(ListView):
-    model = Post
-    template_name = 'spaj/home.html'
+
+def register_user(requeset):
+    return render(requeset, 'spaj/cadastrar.html')
+@csrf_protect
+def submit_user(requeset):
+    if requeset.POST:
+        n_user = requeset.POST.get('username')
+        e_user = requeset.POST.get('email')
+        s_user = requeset.POST.get('password')
+        q = User.objects.filter(username=n_user)
+        if len(q)>0:
+            messages.error(requeset, 'Usuário  já cadastrado')
+            return redirect('/login/#')
+        else:
+            user = User.objects .create_user(n_user, e_user, s_user)
+            user.save()
+    return redirect('http://127.0.0.1:8000/login')
+
+
 
 @login_required(login_url='login/')
 def home(requeset):

@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'spaj.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'spajbd2',
+            'NAME': 'spajdb',
             'USER': 'root',
             'HOST':'localhost',
             'PORT':'3306',

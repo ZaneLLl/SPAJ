@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import fichas
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django import forms
 
 
 @login_required(login_url='login/')
@@ -26,10 +27,12 @@ def set_ficha(requeset):
     CON = requeset.POST.get('CON')
     nomep = requeset.POST.get('nomep')
     hta = requeset.POST.get('hta')
-    user = requeset.user
+    user = requeset.user.id
+    print(user)
+
 
     ficha = fichas.objects.create(LVL=LVL, CAR=CAR, AGL=AGL, VIT=VIT, DES=DES, CTF=CTF, SAB=SAB, PER=PER, CON=CON,
-                                  nomePersonagem=nomep, historiaPersonagem=hta)
+                                  nomePersonagem=nomep, historiaPersonagem=hta, user=user)
 
     return redirect('/')
 
