@@ -31,8 +31,9 @@ def set_ficha(requeset):
     print(user)
 
 
-    ficha = fichas.objects.create(LVL=LVL, CAR=CAR, AGL=AGL, VIT=VIT, DES=DES, CTF=CTF, SAB=SAB, PER=PER, CON=CON,
-                                  nomePersonagem=nomep, historiaPersonagem=hta, user=user)
+
+    ficha = fichas.objects.create(Level=LVL, Carisma=CAR, Agilidade=AGL, Vitalidade=CTF, Destreza=DES, ConstFisica=CTF, Sabedoria=SAB, Percepção=PER, Conhecimento=CON,
+                                  nomePersonagem=nomep, historiaPersonagem=hta, Luta = (DES + AGL)/2, Força =  CTF)
 
     return redirect('/')
 
