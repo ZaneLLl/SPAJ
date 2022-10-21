@@ -39,7 +39,6 @@ def logout_user(requeset):
 def login_user(requeset):
     return render(requeset, 'spaj/login.html')
 
-
 @csrf_protect
 def submit_login(requeset):
     if requeset.POST:
