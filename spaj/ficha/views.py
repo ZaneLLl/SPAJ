@@ -14,26 +14,22 @@ from django import forms
 def ficha_register(requeset):
     return render(requeset, 'fichas-register.html')
 
-@login_required(login_url='login/')
-def set_ficha(requeset):
-    LVL = requeset.POST.get('LVL')
-    CAR = requeset.POST.get('CAR')
-    AGL = requeset.POST.get('AGL')
-    VIT = requeset.POST.get('VIT')
-    DES = requeset.POST.get('DES')
-    CTF = requeset.POST.get('CTF')
-    SAB = requeset.POST.get('SAB')
-    PER = requeset.POST.get('PER')
-    CON = requeset.POST.get('CON')
-    nomep = requeset.POST.get('nomep')
-    hta = requeset.POST.get('hta')
-    user = requeset.user.id
-    print(user)
-
-
-
-    ficha = fichas.objects.create(Level=LVL, Carisma=CAR, Agilidade=AGL, Vitalidade=CTF, Destreza=DES, ConstFisica=CTF, Sabedoria=SAB, Percepção=PER, Conhecimento=CON,
-                                  nomePersonagem=nomep, historiaPersonagem=hta, Luta = (DES + AGL)/2, Força =  CTF)
-
-    return redirect('/')
+class Ficha:
+    @login_required(login_url='login/')
+    def set_ficha(requeset):
+        LVL = requeset.POST.get('LVL')
+        CAR = requeset.POST.get('CAR')
+        AGL = int(requeset.POST.get('AGL'))
+        DES = int(requeset.POST.get('DES'))
+        CTF = requeset.POST.get('CTF')
+        SAB = requeset.POST.get('SAB')
+        PER = requeset.POST.get('PER')
+        CON = requeset.POST.get('CON')
+        nomep = requeset.POST.get('nomep')
+        hta = requeset.POST.get('hta')
+        user = requeset.user.id
+        LUT = (AGL+DES)/2
+        ficha = fichas.objects.create(Level=LVL, Carisma=CAR, Agilidade=AGL, Vitalidade=CTF, Destreza=DES, ConstFisica=CTF, Sabedoria=SAB, Percepção=PER, Conhecimento=CON,
+                                  nomePersonagem=nomep, historiaPersonagem=hta, Luta = LUT, Força = CTF)
+        return redirect('/')
 

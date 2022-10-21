@@ -15,9 +15,6 @@ class fichas(models.Model):
     Vitalidade = models.IntegerField(default=0)
     Força = models.IntegerField(default=0)
     Luta = models.IntegerField(default=0)
-
-
-class preencher_ficha:
-    id_ficha = models.ForeignKey(fichas,  primary_key=True, on_delete=models.CASCADE)
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
+    preencher_ficha = models.ManyToManyField(User)
+    #id_aventura = models.ForeignKey(aventura, on_delete=models.CASCADE)
 

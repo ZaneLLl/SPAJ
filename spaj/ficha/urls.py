@@ -3,7 +3,7 @@ from.import views
 
 urlpatterns = [
     path('register/', views.ficha_register),
-    path('register/submit', views.set_ficha)
+    path('register/submit', views.Ficha.set_ficha)
 
 
 ]
