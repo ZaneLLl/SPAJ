@@ -1,5 +1,7 @@
+from aventura.models import aventuras
 from django.db import models
 from django.contrib.auth.models import User
+
 
 class fichas(models.Model):
     nomePersonagem = models.CharField(max_length=45)
@@ -16,5 +18,6 @@ class fichas(models.Model):
     Força = models.IntegerField(default=0)
     Luta = models.IntegerField(default=0)
     preencher_ficha = models.ManyToManyField(User)
-    #id_aventura = models.ForeignKey(aventura, on_delete=models.CASCADE)
+    id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False)
+
 

@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'aventura.apps.AventuraConfig',
     'ficha.apps.FichaConfig',
     'users.apps.UsersConfig',
     'forms.apps.FormsConfig',

@@ -33,4 +33,3 @@ class Ficha:
                                   nomePersonagem=nomep, historiaPersonagem=hta, Luta = LUT, Força = CTF)
         return redirect('/')
 
-..
