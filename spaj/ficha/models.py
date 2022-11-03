@@ -20,4 +20,20 @@ class fichas(models.Model):
     preencher_ficha = models.ManyToManyField(User)
     id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False)
 
+class pericias(models.Model):
+    nome_pericia = models.CharField(max_length=30, unique=True, blank=False)
+    descrição_pericia = models.CharField(max_length=100)
+    conter_pericia = models.ManyToManyField(fichas)
+
+class equipamentos(models.Model):
+    nome_equi = models.CharField(max_length=20, unique=True, blank=False)
+    dano = models.IntegerField(blank=True, null=True)
+    defesa = models.IntegerField(blank=True, null=True)
+    descrição = models.CharField(max_length=100)
+
+
+class possuir_equipamento(models.Model):
+    id_equi = models.ForeignKey(equipamentos, on_delete=models.CASCADE)
+    id_ficha = models.ForeignKey(fichas, on_delete=models.CASCADE)
+    quantidade = models.IntegerField(blank=False, default= 0 )
 
