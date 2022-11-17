@@ -27,14 +27,12 @@ def submit_user(requeset):
     return redirect('http://127.0.0.1:8000/login')
 
 
-
-@login_required(login_url='login/')
 def home(requeset):
     return render(requeset, 'spaj/home.html')
 
 def logout_user(requeset):
     logout(requeset)
-    return redirect('/login')
+    return redirect('/home')
 
 def login_user(requeset):
     return render(requeset, 'spaj/login.html')
@@ -49,7 +47,7 @@ def submit_login(requeset):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(requeset, user)
-            return redirect('/')
+            return redirect('/home')
         else:
             messages.error(requeset, 'Usuário  ou senha invalidos, tente novame.')
     return redirect('/login/#')

@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class fichas(models.Model):
-    nomePersonagem = models.CharField(max_length=45)
-    historiaPersonagem = models.TextField(max_length=1000)
+    nomePersonagem = models.CharField(max_length=45, verbose_name='Nome do Personagem')
+    historiaPersonagem = models.TextField(max_length=1000, verbose_name= 'Historia do Personagem')
     Level = models.IntegerField(blank=False)
     Sabedoria = models.IntegerField(blank=False)
     Agilidade = models.IntegerField(blank=False)
@@ -18,12 +18,15 @@ class fichas(models.Model):
     Força = models.IntegerField(default=0)
     Luta = models.IntegerField(default=0)
     preencher_ficha = models.ManyToManyField(User)
-    id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False)
+    id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False, verbose_name='Aventura')
+
+    def __str__(self):
+        return self.nomePersonagem
 
 class pericias(models.Model):
     nome_pericia = models.CharField(max_length=30, unique=True, blank=False)
     descrição_pericia = models.CharField(max_length=100)
-    conter_pericia = models.ManyToManyField(fichas)
+    conter_pericia = models.ManyToManyField(fichas, related_name='conter_pericia')
 
 class equipamentos(models.Model):
     nome_equi = models.CharField(max_length=20, unique=True, blank=False)
@@ -35,5 +38,5 @@ class equipamentos(models.Model):
 class possuir_equipamento(models.Model):
     id_equi = models.ForeignKey(equipamentos, on_delete=models.CASCADE)
     id_ficha = models.ForeignKey(fichas, on_delete=models.CASCADE)
-    quantidade = models.IntegerField(blank=False, default= 0 )
+    quantidade = models.IntegerField(blank=False, default=0)
 
