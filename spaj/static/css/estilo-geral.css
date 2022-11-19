@@ -1,0 +1,182 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to botton, #173840, #011C26);
+    background-color: #011C26;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    font-size: 35%;
+    font-style: oblique;
+	text-align: center;
+}
+.form-group{
+    color: #f2f2f2;
+}
+header{
+    color: #f2f2f2;
+    font-size: xx-large;
+    padding-bottom: 8%;
+    width: 100%;
+    height: 25%;
+    background-color: #881616;
+    border-bottom:hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+footer{
+	position: relative;
+	bottom: 0%;
+    margin-top: 8%;
+    color: #f2f2f2;
+    background-color: #011C26;
+	text-align:center;
+    border: hidden;
+    font-size: medium;
+}
+button{
+	color: #f2f2f2;
+	text-align: right;
+	margin-top: 10%;
+	background-color: #881616;
+	border-radius: 30px;
+	border-color: #f2f2f2;
+	height: 10%;
+}
+.txt-botao{
+	text-align: left;
+	float: left;
+	margin-top: 60%;
+}
+#icon-play{
+	float: left;
+	width: 50%;
+	
+}
+.bloco-vermelho{
+    padding-right: 5%;
+}
+button.bloco-vermelho p{
+    width: 100%;
+    margin-top: 3%;
+}
+#img-ficha{
+    width: 50%;
+}
+a{
+    color: #881616;
+}
+p{
+    margin: 3%;
+    text-align: center;
+    color: #f2f2f2;
+}
+h2{
+    color: #f2f2f2;
+    text-align:center;
+    /* enfeitar mais bonitinho (tentar ver a tag border)*/
+}
+.titulo-aba{
+    background-color: #881616;
+    color: #f2f2f2;
+    font-size: 190%;
+    text-align: center;
+    border-radius: 5px;
+    border:hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1%;
+    margin-top: 5%;
+}
+
+
+
+#titulo-site{
+    width:20%;
+    margin-left: 45%;
+    margin-right: 0;
+    padding-top: 5%;
+}
+
+
+nav{
+	position: -webkit-sticky;
+	position: sticky; 
+	text-align: center;
+    background-color: #881616;
+    border-radius: 5px;
+    border:hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+nav ul{
+    float: inline-end;
+	text-align: center;
+	padding: 0;
+}
+nav li{
+	display: inline-block;
+	padding-top:14PX;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+nav a{
+	color: #f2f2f2;
+	font-weight: 200;
+	font-size: large;
+	text-decoration: none;
+    font-style: italic;
+}
+nav a:hover{
+	text-decoration: double;
+    
+	color: #f2f2f2;
+	text-shadow: inset -4 px 4px #222;
+
+}
+
+
+@media only screen and (max-width:767px){
+    h2 {
+        font-size: 200%;
+    }
+    p {
+        text-align: center;
+        font-size: 170%;
+    }
+    header{
+        text-align: center;
+        padding-bottom: 20%;
+        padding-right: 30px;
+        padding-left: 30px;
+        padding-top: 2%;
+    }
+    .dragao-header{
+        width: 23%;
+        height: 16%;
+    }
+    .dragao-fim{
+        margin: 0;
+        width: 13%;
+        height: 50%;
+    }
+    button{
+        margin-left: 20%;
+        margin-bottom: 5%;
+		margin-top: 10%;
+        padding-bottom: 0%;
+        text-align: center;
+        width: 60%;
+        height: 8%;
+    }
+	footer{
+		height: 20%;
+		width: auto;
+	}
+}

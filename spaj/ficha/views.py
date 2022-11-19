@@ -10,45 +10,79 @@ from django.contrib.auth import authenticate, login, logout
 from django import forms
 from django.db.models import Q
 from aventura.models import aventuras
-from .forms import fichas
+from .forms import NovaFicha
 from django.core.paginator import Paginator
+from django.views.generic import CreateView, ListView, UpdateView, DetailView
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+from django.http import HttpResponseRedirect
 
-@login_required(login_url='login/')
-def ficha_register(requeset):
-    return render(requeset, 'fichas-register.html')
-@login_required(login_url='login/')
-def set_ficha(requeset):
-    if (requeset.method == 'GET'):
-        form = fichas()
-        context = { 'form': form
 
+def fichas (request):
+    if request.method == 'GET':
+        form = NovaFicha()
+        context = {
+            'form': form
         }
-        return render(requeset, 'fichas-register.html', context = form)
+        return render(request,'fichas-register.html', context=context)
+    else:
+        form =NovaFicha(request.POST)
+        context = {
+            'form': form
+        }
+        return render(request, 'fichas-register.html', context=context)
+def set_ficha(request):
+    if request.method == 'GET':
+        form = NovaFicha()
+        context = {
+            'form': form
+        }
+        return render(request, 'fichas-register.html', context=context)
+    else:
+        form = NovaFicha(request.POST)
+        context = {
+            'form': form
+        }
+        if form.is_valid():
+            Level = int(request.POST.get('Level'))
+            Sabedoria = int(request.POST.get('Sabedoria'))
+            Agilidade = int(request.POST.get('Agilidade'))
+            Conhecimento = int(request.POST.get('Conhecimento'))
+            Destreza = int(request.POST.get('Destreza'))
+            ConstFisica = int(request.POST.get('ConstFisica'))
+            Percepção = int(request.POST.get('Percepção'))
+            Carisma = int(request.POST.get('Carisma'))
 
-    if(requeset.method == 'POST'):
 
-        form = fichas(requeset.POST)
-
-        if (form.is_valid()):
+            novaFicha = fichas.objects.create(
+            nomePersonagem = form.cleaned_data.get('nomePersonagem'),
+            historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
+            id_aventura = form.cleaned_data.get('id_aventura'),
+            Level = Level,
+            Sabedoria = Sabedoria,
+            Agilidade = Agilidade,
+            Conhecimento = Conhecimento,
+            Destreza = Destreza,
+            ConstFisica =  ConstFisica,
+            Percepção = Percepção,
+            Carisma = Carisma
+            )
+            novaFicha.save()
 
             return redirect('/')
-        else:
-            form = fichas()
-
-
-
-
 
 
 
 @login_required(login_url='login/')
-def get_ficha(requeset):
-    return render(requeset,'fichas.html')
+def get_ficha(request):
+    return render(request,'fichas.html')
 
 
-def equipamentos(requeset):
-    id_ficha = requeset.id_ficha
-    equipamento = requeset.equipamento
+def equipamentos(request):
+    id_ficha = request.id_ficha
+    equipamento = request.equipamento
     possuir = possuir_equipamento(id_equi_id=equipamento, id_ficha_id=id_ficha)
 
 

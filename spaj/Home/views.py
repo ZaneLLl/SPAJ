@@ -9,17 +9,18 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 
 
-def register_user(requeset):
-    return render(requeset, 'spaj/cadastrar.html')
+def register_user(request):
+    print(request.user)
+    return render(request, 'spaj/cadastrar.html')
 @csrf_protect
-def submit_user(requeset):
-    if requeset.POST:
-        n_user = requeset.POST.get('username')
-        e_user = requeset.POST.get('email')
-        s_user = requeset.POST.get('password')
+def submit_user(request):
+    if request.POST:
+        n_user = request.POST.get('username')
+        e_user = request.POST.get('email')
+        s_user = request.POST.get('password')
         q = User.objects.filter(username=n_user)
         if len(q)>0:
-            messages.error(requeset, 'Usuário  já cadastrado')
+            messages.error(request, 'Usuário  já cadastrado')
             return redirect('/login/#')
         else:
             user = User.objects.create_user(n_user, e_user, s_user)
@@ -27,27 +28,27 @@ def submit_user(requeset):
     return redirect('http://127.0.0.1:8000/login')
 
 
-def home(requeset):
-    return render(requeset, 'spaj/home.html')
+def home(request):
+    return render(request, 'spaj/home.html')
 
-def logout_user(requeset):
-    logout(requeset)
+def logout_user(request):
+    logout(request)
     return redirect('/home')
 
-def login_user(requeset):
-    return render(requeset, 'spaj/login.html')
+def login_user(request):
+    return render(request, 'spaj/login.html')
 
 @csrf_protect
-def submit_login(requeset):
-    if requeset.POST:
-        username = requeset.POST.get('username')
-        password = requeset.POST.get('password')
+def submit_login(request):
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         print(username)
         print(password)
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(requeset, user)
+            login(request, user)
             return redirect('/home')
         else:
-            messages.error(requeset, 'Usuário  ou senha invalidos, tente novame.')
+            messages.error(request, 'Usuário  ou senha invalidos, tente novame.')
     return redirect('/login/#')

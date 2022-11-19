@@ -9,24 +9,149 @@
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
     crossorigin="anonymous"
   />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/estilo-geral.css'%}"
+  />
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
     crossorigin="anonymous"
   ></script>
-  <script defer src="scripts/jv.js"></script>
+  <script type="text/javascript" defer src='/static/js/ficha.js'></script>
   <title>Tcc</title>
 </head>
 
 {% block content %}
 <body>
+  <header>
+    <img
+      style="float: left"
+      class="dragao-header"
+      src="{% static 'imagens/dragao-header.png' %}"
+    />
+    SPAJ
+    <img
+      style="float: right"
+      class="dragao-header"
+      src="{% static 'imagens/dragao-header-2.png' %}"
+    />
+  </header>
   <h1 class="text-center">Cadastrar Fichas para jogo</h1>
   <form enctype="multipart/form-data" action="submit" method="POST">
     {% csrf_token %}
     <div class="form-group">
       <label for="fichas">Aventuras</label>
-      {{form | crispy}}
-      <button class="btn btn-primary" type="submit">Cadastrar</button>
+        {{form | crispy}}
+      </div>
+      <div1 class = "container">
+        <button name ="-level" onclick="subtrair('level', 0)">-</button>
+        Level <span id="level">1</span>
+        <button name ="+level" onclick="adição('level', 0)" >+</button>
+    </divclass></div> 
+
+    <br>
+    <br>
+    
+    <div2 class = "container">
+        <button name ="-sabedoria" onclick="subtrair('sabedoria', 1)">-</button>
+        Sabedoria <span id="sabedoria">0</span>
+        <button name ="+sabedoria" onclick="adição('sabedoria', 1)" >+</button>
+    
+    </divclass></div>
+    
+    <br>
+    <br>
+    
+    <div3 class = "container">
+        <button name ="-conhecimento" onclick="subtrair('conhecimento',2)">-</button>
+        Conhecimento <span id="conhecimento">0</span>
+        <button name ="+conhecimento" onclick="adição('conhecimento', 2)" >+</button>
+    
+    </divclass></div>
+        
+    <br>
+    <br>
+    
+    <div4 class = "container">
+        <button name ="-agilidade" onclick="subtrair('agilidade',3)">-</button>
+        Agilidade <span id="agilidade">0</span>
+        <button name ="+agilidade" onclick="adição('agilidade', 3)" >+</button>
+    
+    </divclass></div>
+        
+    <br>
+    <br>
+    
+    <div5 class = "container">
+        
+        <button name ="-destreza" onclick="subtrair('destreza',4)">-</button>
+        Destreza <span id="destreza">0</span>
+        <button name ="+destreza" onclick="adição('destreza', 4)" >+</button>
+    
+    </divclass></div>    
+    
+    <br>
+    <br>
+    
+    <div6 class = "container">
+        
+        <button name ="-constituicao_fisica" onclick="subtrair('constituicao_fisica',5)">-</button>
+        Constituição fsica <span id="constituicao_fisica">0</span>
+        <button name ="+constituicao_fisica" onclick="adição('constituicao_fisica', 5)" >+</button>
+    
+    </divclass></div>
+        
+    <br>
+    <br>
+    
+    <div7 class = "container">
+        
+        <button name ="-percepcao" onclick="subtrair('percepcao',6)">-</button>
+        Percepção <span id="percepcao">0</span>
+        <button name ="+percepcao" onclick="adição('percepcao', 6)" >+</button>
+    
+    </divclass></div>
+            
+    <br>
+    <br>
+    
+    <div8 class = "container">
+        
+        <button name ="-carisma" onclick="subtrair('carisma',7)">-</button>
+        Carisma <span id="carisma">0</span>
+        <button name ="+carisma" onclick="adição('carisma', 7)" >+</button>
+    
+    </divclass></div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+    Vitalidade <span id="vitalidadeId">0</span>
+    
+    <br>
+    <br>
+
+    Força <span id="forcaId">0</span>
+    
+    <br>
+    <br>
+
+    Luta <span id="lutaId">0</span>
+
+
+    <br>
+    <br>
+    <br>
+
+    Pontos Disponiveis <span id="pontos_disponiveisId">7</span>
+    <br>
+    <br>
+    Pericias Disponiveis <span id="pericias_disponiveisId">0</span>
     </div>
   </form>
 </body>
