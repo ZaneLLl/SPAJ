@@ -19,27 +19,14 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 
-
-def fichas (request):
+@login_required(login_url='login/')
+def set_ficha (request):
     if request.method == 'GET':
         form = NovaFicha()
         context = {
             'form': form
         }
         return render(request,'fichas-register.html', context=context)
-    else:
-        form =NovaFicha(request.POST)
-        context = {
-            'form': form
-        }
-        return render(request, 'fichas-register.html', context=context)
-def set_ficha(request):
-    if request.method == 'GET':
-        form = NovaFicha()
-        context = {
-            'form': form
-        }
-        return render(request, 'fichas-register.html', context=context)
     else:
         form = NovaFicha(request.POST)
         context = {
@@ -72,6 +59,7 @@ def set_ficha(request):
             novaFicha.save()
 
             return redirect('/')
+
 
 
 
