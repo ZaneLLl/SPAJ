@@ -15,7 +15,8 @@
         pontos_disponiveis = atributos[0] * 7
 
         function adição (atribId, atrib){
-            vartranscicao = window.document.getElementById(atribId)            
+            vartranscicao = window.document.getElementById(atribId)
+
 
             if(pontos_disponiveis > 0){
                 if(atributos[atrib] === 17){
@@ -72,6 +73,67 @@
 
 
             }
+            if(atrib == 0){
+
+                atributos[7] = 0
+                vartranscicao = window.document.getElementById('carisma')
+                vartranscicao.innerHTML = 0
+
+                atributos[6] = 0
+                vartranscicao = window.document.getElementById('percepcao')
+                vartranscicao.innerHTML = 0
+
+                atributos[5] = 0
+                vartranscicao = window.document.getElementById('constituicao_fisica')
+                vartranscicao.innerHTML = 0
+
+                atributos[4] = 0
+                vartranscicao = window.document.getElementById('destreza')
+                vartranscicao.innerHTML = 0
+
+                atributos[3] = 0
+                vartranscicao = window.document.getElementById('agilidade')
+                vartranscicao.innerHTML = 0
+
+                atributos[2] = 0
+                vartranscicao = window.document.getElementById('conhecimento')
+                vartranscicao.innerHTML = 0
+
+                atributos[1] = 0
+                vartranscicao = window.document.getElementById('sabedoria')
+                vartranscicao.innerHTML = 0
+
+                forca = 0
+                vartranscicao = window.document.getElementById('forcaId')
+                vartranscicao.innerHTML = 0
+
+                vitalidade = 0
+                vartranscicao = window.document.getElementById('vitalidadeId')
+                vartranscicao.innerHTML = 0
+
+                luta = 0
+                vartranscicao = window.document.getElementById('lutaId')
+                vartranscicao.innerHTML = 0
+
+                pericias_disponiveis = 0
+                vartranscicao = window.document.getElementById('pericias_disponiveisId')
+                vartranscicao.innerHTML = pericias_disponiveis
+
+                pontos_disponiveis = atributos[0] * 7
+                vartranscicao2 = window.document.getElementById('pontos_disponiveisId')
+                vartranscicao2.innerHTML = pontos_disponiveis
+
+            }
+
+            window.document.getElementById('levelhtml').value = atributos[0]
+            window.document.getElementById('sabedoriahtml').value = atributos[1]
+            window.document.getElementById('conhecimentohtml').value = atributos[2]
+            window.document.getElementById('agilidadehtml').value = atributos[3]
+            window.document.getElementById('destrezahtml').value = atributos[4]
+            window.document.getElementById('constfisicahtml').value = atributos[5]
+            window.document.getElementById('percepcaohtml').value = atributos[6]
+            window.document.getElementById('carismahtml').value = atributos[7]
+
         } 
         
         function subtrair (atribId, atrib){
@@ -177,5 +239,12 @@
                     vartranscicao.innerHTML = Math.floor((atributos[3] + atributos[4])/2)
                 }
             }
-        
-        }    
+            window.document.getElementById('levelhtml').value = atributos[0]
+            window.document.getElementById('sabedoriahtml').value = atributos[1]
+            window.document.getElementById('conhecimentohtml').value = atributos[2]
+            window.document.getElementById('agilidadehtml').value = atributos[3]
+            window.document.getElementById('destrezahtml').value = atributos[4]
+            window.document.getElementById('constfisicahtml').value = atributos[5]
+            window.document.getElementById('percepcaohtml').value = atributos[6]
+            window.document.getElementById('carismahtml').value = atributos[7]
+        }
