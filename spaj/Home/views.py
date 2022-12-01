@@ -25,7 +25,7 @@ def submit_user(request):
         else:
             user = User.objects.create_user(n_user, e_user, s_user)
             user.save()
-    return redirect('http://127.0.0.1:8000/home/login/')
+    return redirect('http://127.0.0.1:8000/login/')
 
 
 def home(request):

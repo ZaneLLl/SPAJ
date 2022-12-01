@@ -14,9 +14,9 @@ class fichas(models.Model):
     ConstFisica = models.IntegerField(blank=False)
     Percepção = models.IntegerField(blank=False)
     Carisma = models.IntegerField(blank=False)
-    Vitalidade = models.IntegerField(default=0)
-    Força = models.IntegerField(default=0)
-    Luta = models.IntegerField(default=0)
+    Vitalidade = models.IntegerField(blank=False)
+    Força = models.IntegerField(blank=False)
+    Luta = models.IntegerField(blank=False)
     preencher_ficha = models.ManyToManyField(User)
     id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False, verbose_name='Aventura')
 
