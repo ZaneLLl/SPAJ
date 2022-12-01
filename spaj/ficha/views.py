@@ -19,7 +19,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 
-@login_required(login_url='http://127.0.0.1:8000/login')
+@login_required(login_url='login/')
 def set_ficha (request):
     if request.method == 'GET':
         form = NovaFicha()
@@ -63,15 +63,15 @@ def set_ficha (request):
 
 
 
-@login_required(login_url='login/')
-def get_ficha(request):
-    return render(request,'fichas.html')
+#@login_required('http://127.0.0.1:8000/login/')
+#def get_ficha(request):
+    #return render(request, 'fichas.html')
 
 
-def equipamentos(request):
-    id_ficha = request.id_ficha
-    equipamento = request.equipamento
-    possuir = possuir_equipamento(id_equi_id=equipamento, id_ficha_id=id_ficha)
+#def equipamentos(request):
+    #id_ficha = request.id_ficha
+    #equipamento = request.equipamento
+    #possuir = possuir_equipamento(id_equi_id=equipamento, id_ficha_id=id_ficha)
 
 
 

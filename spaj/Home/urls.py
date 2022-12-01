@@ -5,7 +5,7 @@ urlpatterns = [
     path('home/', views.home),
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
-    path('logout/', views.logout_user),
+    path('home/logout/', views.logout_user),
     path('cadastrar/', views.register_user),
     path('cadastrar/submit', views.submit_user)
 
