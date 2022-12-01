@@ -11,8 +11,8 @@ from django.db.models import Q
 
 def register_user(request):
     print(request.user)
-    return render(request, 'spaj/cadastrar.html')
-@csrf_protect
+    return render(request, 'cadastrar.html')
+
 def submit_user(request):
     if request.POST:
         n_user = request.POST.get('username')
@@ -21,22 +21,22 @@ def submit_user(request):
         q = User.objects.filter(username=n_user)
         if len(q)>0:
             messages.error(request, 'Usuário  já cadastrado')
-            return redirect('/login/#')
+            return render(request, 'cadastrar.html')
         else:
             user = User.objects.create_user(n_user, e_user, s_user)
             user.save()
-    return redirect('http://127.0.0.1:8000/login')
+    return redirect('http://127.0.0.1:8000/home/login/')
 
 
 def home(request):
-    return render(request, 'spaj/home.html')
+    return render(request, 'home.html')
 
 def logout_user(request):
     logout(request)
-    return redirect('/home')
+    return redirect('http://127.0.0.1:8000/home/')
 
 def login_user(request):
-    return render(request, 'spaj/login.html')
+    return render(request, 'login.html')
 
 @csrf_protect
 def submit_login(request):
@@ -48,7 +48,7 @@ def submit_login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/home')
+            return redirect('http://127.0.0.1:8000/home/')
         else:
             messages.error(request, 'Usuário  ou senha invalidos, tente novame.')
-    return redirect('/login/#')
+    return redirect('http://127.0.0.1:8000/home/login/')

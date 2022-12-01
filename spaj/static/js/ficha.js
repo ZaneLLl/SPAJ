@@ -37,7 +37,7 @@
                 if(atribId == 'constituicao_fisica' || atribId == 'destreza' || atribId == 'agilidade' || atribId == 'conhecimento'){
 
                     if(atribId == 'conhecimento'){
-                        pericias_disponiveis++
+                        pericias_disponiveis = conhecimento
                         vartranscicao = window.document.getElementById('pericias_disponiveisId')
                         vartranscicao.innerHTML = pericias_disponiveis
                     }
@@ -76,7 +76,12 @@
         
         function subtrair (atribId, atrib){
             vartranscicao = window.document.getElementById(atribId)
-            
+
+            if(atributos[atrib] == 1 && atrib == 0){
+                vartranscicao.innerHTML = atributos[atrib]
+
+            }
+
             if(atributos[atrib] == 0){
                 vartranscicao.innerHTML = atributos[atrib]
             }
@@ -87,7 +92,12 @@
                 vartranscicao2 = window.document.getElementById('pontos_disponiveisId')
                 vartranscicao2.innerHTML = pontos_disponiveis
             }
-            
+            if(atributos[atrib] == 0 && atrib == 0){
+                vartranscicao.innerHTML = 1
+                atributos[atrib] = 1
+
+
+            }
             if(atrib == 0){
 
                 atributos[7] = 0

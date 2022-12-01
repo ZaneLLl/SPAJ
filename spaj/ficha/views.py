@@ -19,7 +19,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
 
-@login_required(login_url='login/')
+@login_required(login_url='http://127.0.0.1:8000/login')
 def set_ficha (request):
     if request.method == 'GET':
         form = NovaFicha()
