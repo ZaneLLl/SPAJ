@@ -33,14 +33,22 @@ def set_ficha (request):
             'form': form
         }
         if form.is_valid():
-            Level = int(request.POST.get('Level'))
-            Sabedoria = int(request.POST.get('Sabedoria'))
-            Agilidade = int(request.POST.get('Agilidade'))
-            Conhecimento = int(request.POST.get('Conhecimento'))
-            Destreza = int(request.POST.get('Destreza'))
-            ConstFisica = int(request.POST.get('ConstFisica'))
-            Percepção = int(request.POST.get('Percepção'))
-            Carisma = int(request.POST.get('Carisma'))
+            Level = int(request.POST.get('levelhtml'))
+            print(Level)
+            Sabedoria = int(request.POST.get('sabedoriahtml'))
+            print(Sabedoria)
+            Conhecimento = int(request.POST.get('conhecimentohtml'))
+            print(Conhecimento)
+            Agilidade = int(request.POST.get('agilidadehtml'))
+            print(Agilidade)
+            Destreza = int(request.POST.get('destrezahtml'))
+            print(Destreza)
+            ConstFisica = int(request.POST.get('constfisicahtml'))
+            print(ConstFisica)
+            Percepção = int(request.POST.get('percepcaohtml'))
+            print(Percepção)
+            Carisma = int(request.POST.get('carismahtml'))
+            print(Carisma)
 
 
             novaFicha = fichas.objects.create(

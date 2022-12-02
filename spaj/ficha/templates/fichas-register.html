@@ -19,7 +19,7 @@
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
     crossorigin="anonymous"
   ></script>
-  <script type="text/javascript" defer src='/static/js/ficha.js'></script>
+  <script type="text/javascript" defer src="{% static 'js/ficha.js'%}""></script>
   <title>Tcc</title>
 </head>
 
@@ -46,6 +46,7 @@
         {{form | crispy}}
       </div>
       <div class = "form-group">
+        <input type="hidden" id="levelhtml"  name="levelhtml">
         <button class = "button" type = "button" onclick="subtrair('level', 0)">-</button>
         Level <span id="level">1</span>
         <button class = "button" type = "button" onclick="adição('level', 0)" >+</button>
@@ -55,6 +56,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="sabedoriahtml"  name="sabedoriahtml">
         <button class = "button" type = "button" onclick="subtrair('sabedoria', 1)">-</button>
         Sabedoria <span id="sabedoria">0</span>
         <button class = "button" type = "button" onclick="adição('sabedoria', 1)" >+</button>
@@ -65,6 +67,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="conhecimentohtml"  name="conhecimentohtml">
         <button class = "button" type = "button" onclick="subtrair('conhecimento',2)">-</button>
         Conhecimento <span id="conhecimento">0</span>
         <button class = "button" type = "button" onclick="adição('conhecimento', 2)" >+</button>
@@ -75,6 +78,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="agilidadehtml"  name="agilidadehtml">
         <button class = "button" type = "button" onclick="subtrair('agilidade',3)">-</button>
         Agilidade <span id="agilidade">0</span>
         <button class = "button" type = "button" onclick="adição('agilidade', 3)" >+</button>
@@ -85,6 +89,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="destrezahtml"  name="destrezahtml">
         <button class = "button" type = "button" onclick="subtrair('destreza',4)">-</button>
         Destreza <span id="destreza">0</span>
         <button class = "button" type = "button" onclick="adição('destreza', 4)" >+</button>
@@ -95,6 +100,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="constfisicahtml"  name="constfisicahtml">
         <button class = "button" type = "button" onclick="subtrair('constituicao_fisica',5)">-</button>
         Constituição fsica <span id="constituicao_fisica">0</span>
         <button class = "button" type = "button" onclick="adição('constituicao_fisica', 5)" >+</button>
@@ -105,6 +111,7 @@
 
 
     <div class = "form-group">
+        <input type="hidden" id="percepcaohtml"  name="percepcaohtml">
         <button class = "button" type = "button" onclick="subtrair('percepcao',6)">-</button>
         Percepção <span id="percepcao">0</span>
         <button class = "button" type = "button" onclick="adição('percepcao', 6)" >+</button>
@@ -114,6 +121,7 @@
     <br>
 
     <div class = "form-group">
+        <input type="hidden" id="carismahtml"  name="carismahtml">
         <button class = "button" type = "button" onclick="subtrair('carisma',7)">-</button>
         Carisma <span id="carisma">0</span>
         <button class = "button" type = "button" onclick="adição('carisma', 7)" >+</button>
@@ -147,6 +155,7 @@
     <div class = "form-group">
         Pericias Disponiveis <span id="pericias_disponiveisId">0</span>
     </div>
-    </form>
+    <button class="form-group" type="submit">Cadastrar</button>
+  </form>
 </body>
 {% endblock %}

@@ -8,33 +8,43 @@
     box-sizing: border-box;
 }
 
+
+button{
+    background-color:#011C26;
+    border-color: transparent;
+}
+
+
 body{
     background: linear-gradient(to botton, #173840, #011C26);
     background-color: #011C26;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color:#f2f2f2;
 }
 header{
+    padding-top: 2%;
+    padding-bottom: 1%;
     font-size: 35%;
     font-style: oblique;
 	text-align: center;
 }
-.form-group{
-    color: #f2f2f2;
-}
 header{
     color: #f2f2f2;
     font-size: xx-large;
-    padding-bottom: 8%;
     width: 100%;
-    height: 25%;
     background-color: #881616;
-    border-bottom:hidden;
+    border-radius: 5px;
+    border:hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+    margin-bottom: 5%;
+}
+aside {
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
 }
 footer{
-	position: relative;
-	bottom: 0%;
     margin-top: 8%;
     color: #f2f2f2;
     background-color: #011C26;
@@ -42,31 +52,16 @@ footer{
     border: hidden;
     font-size: medium;
 }
-button{
-	color: #f2f2f2;
-	text-align: right;
-	margin-top: 10%;
-	background-color: #881616;
-	border-radius: 30px;
-	border-color: #f2f2f2;
-	height: 10%;
-}
-.txt-botao{
+
+#txt-botao{
 	text-align: left;
 	float: left;
-	margin-top: 60%;
+	margin-top: 10%;
 }
-#icon-play{
+.icon-play{
 	float: left;
-	width: 50%;
-	
-}
-.bloco-vermelho{
-    padding-right: 5%;
-}
-button.bloco-vermelho p{
-    width: 100%;
-    margin-top: 3%;
+	width: 15%;
+	height: 90%;
 }
 #img-ficha{
     width: 50%;
@@ -79,14 +74,30 @@ p{
     text-align: center;
     color: #f2f2f2;
 }
+h1{
+    text-align: center;
+    color: #f2f2f2;
+}
 h2{
     color: #f2f2f2;
     text-align:center;
     /* enfeitar mais bonitinho (tentar ver a tag border)*/
 }
+h3{
+    text-align: center;
+    color: #f2f2f2;
+}
+.botao-vermelho{
+    background-color: #881616;
+    color: #f2f2f2;
+    border-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 .titulo-aba{
     background-color: #881616;
     color: #f2f2f2;
+    padding: 0.2%;
     font-size: 190%;
     text-align: center;
     border-radius: 5px;
@@ -95,30 +106,65 @@ h2{
     margin-bottom: 1%;
     margin-top: 5%;
 }
-
-
-
+.botao-atrb{
+    color:#f2f2f2;
+    width: 10%;
+    background-color:#011C26;
+    border-color: #881616;
+    color: #881616;
+    margin-left: 10%;
+}
+.botao-atrb-e{
+    color:#f2f2f2;
+    margin-right: 10%;
+    margin-left: 28%;
+    width: 10%;
+    background-color:#011C26;
+    border-color: #881616;
+    color: #881616;
+}
+.input-info{
+    width: 20%;
+    height: 10%;
+}
 #titulo-site{
-    width:20%;
+    width: 20%;
     margin-left: 45%;
     margin-right: 0;
     padding-top: 5%;
 }
-
+.nome-personagem{
+    margin: 6%;
+    font-style: italic;
+}
+.vermelho{
+    background-color: rgba(191,17,17,0.6);
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 1%;
+    margin-bottom: 1%;
+    font-style: italic;
+}
+.azul{
+    background-color: rgba(2, 23, 31, 0.6);
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 1%;
+    margin-bottom: 1%;
+    font-style: italic;
+}
 
 nav{
 	position: -webkit-sticky;
-	position: sticky; 
+	position: sticky;
 	text-align: center;
-    background-color: #881616;
-    border-radius: 5px;
-    border:hidden;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 nav ul{
     float: inline-end;
 	text-align: center;
 	padding: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 nav li{
 	display: inline-block;
@@ -131,52 +177,181 @@ nav a{
 	font-weight: 200;
 	font-size: large;
 	text-decoration: none;
-    font-style: italic;
 }
 nav a:hover{
 	text-decoration: double;
-    
 	color: #f2f2f2;
 	text-shadow: inset -4 px 4px #222;
 
 }
+.botao-login{
+    color: #f2f2f2;
+    height: 5%;
+    background-color: transparent;
+    border-color: #8B1616;
+    width: 20%;
+    margin-top: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width:767px){
     h2 {
-        font-size: 200%;
+        font-size: 170%;
+        font-style: italic;
     }
     p {
+        margin-left: 5%;
+        margin-right: 5%;
         text-align: center;
-        font-size: 170%;
+        font-size: 120%;
     }
     header{
         text-align: center;
-        padding-bottom: 20%;
-        padding-right: 30px;
-        padding-left: 30px;
-        padding-top: 2%;
+
     }
     .dragao-header{
-        width: 23%;
-        height: 16%;
+        width: 20%;
+        padding: 0;
+    }
+    .dois-dados{
+        width: 50%;
+        margin-left: 30%;
+        margin-bottom: 5%;
     }
     .dragao-fim{
         margin: 0;
         width: 13%;
-        height: 50%;
     }
-    button{
+    .botao-vermelho{
         margin-left: 20%;
         margin-bottom: 5%;
 		margin-top: 10%;
         padding-bottom: 0%;
         text-align: center;
-        width: 60%;
+        width: 27%;
         height: 8%;
     }
+    button{
+        width:100%;
+        margin-top: 5%;
+    }
+    .gambiarra-botao{
+        width:80%;
+    }
+    #img-tela-1{
+        width: 60%;
+        margin-left: 22%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    #icon-play{
+        margin-top: 3%;
+        width: 35%;
+    }
+    .botao-login{
+        margin-left: 20%;
+    }
 	footer{
-		height: 20%;
-		width: auto;
+		width: 90%;
+        margin-left: 6%;
 	}
+}
+
+/* tela média 1 tablet */
+@media only screen and (min-width:768px) and (max-width:991px){
+    .dragao-header{
+        width: 15%;
+    }
+    .dragao-fim{
+        width:10%;
+    }
+    .botao-login{
+        margin-left: 30%;
+    }
+}
+
+/* tela média 2 monitor pequeno */
+@media only screen and (min-width:992px) and (max-width:1199px){
+    .dragao-header{
+        width: 15%;
+    }
+    .dragao-fim{
+        width: 9%;
+    }
+    .botao-login{
+        margin-left: 30%;
+    }
+}
+
+/* tela grande pc */
+@media only screen and (min-width:1199px){
+    .dragao-header{
+        width: 5%;
+    }
+    .dragao-fim{
+        width: 9%;
+    }
+    .botao-login{
+        margin-left: 30%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.iniciar{
+
+    margin: 0;
+        width: 30%;
+
+}
+
+.espadas{
+    margin-top: 2.5%;
+    width: 3%;
+    height: 3.5%;
+}
+.armaduras{
+
+    width: 3%;
+    height: 3.5%;
+}
+.mochila{
+
+    width: 3%;
+    height: 3.5%;
+}
+h5{
+    text-align: center;
+}
+h6{
+    text-align:left;
 }

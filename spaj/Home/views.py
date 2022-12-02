@@ -50,3 +50,6 @@ def submit_login(request):
         else:
             messages.error(request, 'Usuário  ou senha invalidos, tente novame.')
     return redirect('http://127.0.0.1:8000/login/')
+
+def introducaoJogo(request):
+        return render(request,'in')

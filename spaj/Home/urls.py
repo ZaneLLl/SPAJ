@@ -7,7 +7,8 @@ urlpatterns = [
     path('login/submit', views.submit_login),
     path('home/logout/', views.logout_user),
     path('cadastrar/', views.register_user),
-    path('cadastrar/submit', views.submit_user)
+    path('cadastrar/submit', views.submit_user),
+    path('home/introducao-jogo', views.introducaoJogo)
 
 ]
 
