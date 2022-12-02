@@ -133,6 +133,9 @@
             window.document.getElementById('constfisicahtml').value = atributos[5]
             window.document.getElementById('percepcaohtml').value = atributos[6]
             window.document.getElementById('carismahtml').value = atributos[7]
+            window.document.getElementById('vitalidadehtml').value = vitalidade
+            window.document.getElementById('forcahtml').value = forca
+            window.document.getElementById('lutahtml').value = luta
 
         } 
         
@@ -247,4 +250,7 @@
             window.document.getElementById('constfisicahtml').value = atributos[5]
             window.document.getElementById('percepcaohtml').value = atributos[6]
             window.document.getElementById('carismahtml').value = atributos[7]
+            window.document.getElementById('vitalidadehtml').value = vitalidade
+            window.document.getElementById('forcahtml').value = forca
+            window.document.getElementById('lutahtml').value = luta
         }

@@ -34,39 +34,37 @@ def set_ficha (request):
         }
         if form.is_valid():
             Level = int(request.POST.get('levelhtml'))
-            print(Level)
             Sabedoria = int(request.POST.get('sabedoriahtml'))
-            print(Sabedoria)
             Conhecimento = int(request.POST.get('conhecimentohtml'))
-            print(Conhecimento)
             Agilidade = int(request.POST.get('agilidadehtml'))
-            print(Agilidade)
             Destreza = int(request.POST.get('destrezahtml'))
-            print(Destreza)
             ConstFisica = int(request.POST.get('constfisicahtml'))
-            print(ConstFisica)
             Percepção = int(request.POST.get('percepcaohtml'))
-            print(Percepção)
             Carisma = int(request.POST.get('carismahtml'))
-            print(Carisma)
+            Vitalidade = int(request.POST.get('vitalidadehtml'))
+            Força = int(request.POST.get('forcahtml'))
+            Luta = int(request.POST.get('lutahtml'))
+            if ((Sabedoria <= 17) and (Conhecimento <= 17) and (Agilidade <= 17) and (Destreza <= 17) and (ConstFisica <= 17) and (Percepção <= 17)
+                and (Carisma <= 17) and (Vitalidade == ConstFisica) and (Força == ConstFisica)  and (Luta == Agilidade)):
 
-
-            novaFicha = fichas.objects.create(
-            nomePersonagem = form.cleaned_data.get('nomePersonagem'),
-            historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
-            id_aventura = form.cleaned_data.get('id_aventura'),
-            Level = Level,
-            Sabedoria = Sabedoria,
-            Agilidade = Agilidade,
-            Conhecimento = Conhecimento,
-            Destreza = Destreza,
-            ConstFisica =  ConstFisica,
-            Percepção = Percepção,
-            Carisma = Carisma
-            )
-            novaFicha.save()
-
-            return redirect('/')
+                novaFicha = fichas.objects.create(
+                nomePersonagem = form.cleaned_data.get('nomePersonagem'),
+                historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
+                id_aventura = form.cleaned_data.get('id_aventura'),
+                Level = Level,
+                Sabedoria = Sabedoria,
+                Agilidade = Agilidade,
+                Conhecimento = Conhecimento,
+                Destreza = Destreza,
+                ConstFisica =  ConstFisica,
+                Percepção = Percepção,
+                Carisma = Carisma,
+                Vitalidade = Vitalidade,
+                Força = Força,
+                Luta = Luta,
+                )
+                novaFicha.save()
+            return redirect('/ficha/')
 
 
 
