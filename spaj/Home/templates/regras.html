@@ -1,0 +1,109 @@
+<html>
+    <head>
+        
+        <title>SPAJ</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="./imagens/favicon-16x16.png">
+        
+        <!-- CDN do CSS do Bootstrap 3 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+        <!-- CDN da jQuery 3.5.1. Tem que vir antes do javascript do Bootstrap 3 -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+        <!-- linkando os arquivos de css e js-->
+        <link rel="stylesheet" type="text/css" href="estilo-geral.css">
+
+        <script defer src=".java.js"></script>
+    </head>
+    <body>
+        <header>
+            <img style="margin-right: 8%;" class="dragao-header" src="./imagens/logo.png">
+            SPAJ
+            <img style="margin-left: 8%;" class="dragao-header" src="./imagens/logo.png">
+            
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="regras.html">Regras</a></li>
+                    <li><a href="biblioteca-fichas.html">Biblioteca de Fichas</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Sistema Básico de Regras</h2>
+            <p>
+                As regras do SPAJ são universais, isto é, permitem a prática do RPG em qualquer tipo de cenário
+                Como a objetivo central de um RPG é possibilitar que os jogadores, através da imaginação, sejam outras pessoas e vivendo outras vidas, com todas as emoções que elas podem proporcionar, comecemos nossas regras pela criação dos personagens. 
+
+                No SPAJ todos os personagens possuem quatro grupos de características básicas:
+            </p>
+            <p>
+                <a href="./regras.html">Atributos</a>: características físicas e mentais em geral.
+            </p>
+            <p>
+                <a href="./regras.html">Perícias</a>: saberes e conhecimentos específicos que o personagem domina.
+            </p>
+            <p>
+                <a href="./regras.html">Equipamentos</a>: junção de objetos presentes em seu inventário
+            </p>
+            <p>
+                <a>Classe</a>: o que o personagem faz.
+            </p>
+            
+            <div class="titulo-aba">Definindo os Atributos</div>
+                <p>
+                    Todo personagem no SPAJ tem um Nível Geral, que pode variar de 3 à 17; quanto maior o Nível Geral, maiores serão os valores dos Atributos dos personagens. A definição do Nível Geral dos personagens depende principalmente do nível de dificuldade da campanha que será jogada. Normalmente,definidas pelo Mestre de jogo – que é o único que conhece de antemão as dificuldades que serão enfrentadas pelos jogadores.
+                    <br>
+                    Para efeito de jogo, considera-se que um personagem de nível 10 é uma pessoa comum, cujas capacidades gerais não estão nem acima, nem abaixo da média das pessoas.
+                    Por isso, na maior parte das vezes, os PC’s serão criados com níveis maiores do que 10, sendo associados a pessoas acima da média. Isso, porém, não é uma regra. Certas aventuras ficam mais emocionantes justamente porque os personagens principais são pessoas comuns
+                    <br>
+                    No momento de criação de um personagem, o Nível Geral determina uma quantidade de pontos que devem ser alocados nos Atributos SAB, CON, AGL, DES, CTF e PER; os Atributos VIT, FOR e LUT não entram nessa distribuição inicial de pontos, já que seus níveis dependem dos demais Atributos (VIT e FOR são sempre iguais a CTF, e LUT é igual à média aritmética entre AGL e DES). Para saber quantos pontos podem ser distribuídos entre os Atributos dos personagens, é só seguir os seguintes passos:
+                    <br>
+                    Um personagem de Nível Geral 11, por exemplo, começa com 11 pontos nos Atributos SAB, CON, AGL, DES, CTF, PER e CAR. 
+                    Em seguida, esses pontos podem ser livremente redistribuídos, retirando-se de um para aumentar outro. Digamos, por exemplo, nosso personagem de nível 11 retire dois pontos de Conhecimentos (CON) para aumentar a Constituição Física (CTF), e três pontos de Percepção (PER) para aumentar a Agilidade (AGL). Neste caso, o nível de CON cai para 9, enquanto o nível de CTF sobe para 13, e o nível de PER cai para 8, enquanto AGL vai para 14. 
+                    <br>
+                    Encerrada a redistribuição, é necessário verificar os níveis de VIT, FOR e LUT (que, como vimos, dependem do valor de outros Atributos). Como VIT e FOR dependem do valor de CTF,no exemplo acima eles seriam iguais a 13 (já que dois pontos foram retirados de CON para aumentar CTF). Já o atributo LUT é igual à média aritmética entre AGL e DES; no exemplo anterior, AGL ganhou dois pontos (retirados de PER), e DES permaneceu como estava (isto é, com nível 11). Temos, portanto, LUT = (14+11)/2 = 12,5. Neste caso, LUT fica com nível 12.
+                    Considerando o exemplo, temos a seguinte configuração final dos Atributos: SAB=11; CON=9; AGL=14; DES=11; CTF=13; PER=8; CAR=11; VIT=13; FOR=13; e LUT=12.
+                </p>
+
+            <div class="titulo-aba">Vitalidade</div>
+                <p>
+                    No início de uma campanha, todo personagem começa com a Vitalidade em seu valor máximo. Conforme a trama de desenrola, o personagem perde pontos de Vitalidade toda vez que se machuca . A quantidade de pontos de Vitalidade perdidos depende da gravidade do dano sofrido pelo personagem. Se a Vitalidade chega a zero, o personagem desmaia; se mesmo desmaiado ele continuar a sofrer dano, pode chegar a óbito caso a Vitalidade atinja o valor negativo da Constituição Física. Por exemplo: um personagem com CTF=12 pode sofrer 11 pontos; se sofrer 12 pontos de dano, ele desmaia; a partir daí, a Vitalidade começa a ser contada no negativo (-1, -2, -3... e assim sucessivamente); caso a Vitalidade atinja o nível de -12, o personagem está morto.
+                    A Vitalidade perdida se recupera a medida em que o tempo passa, mas essa melhora gradual é lenta. Para acelerar seu ritmo, o personagem precisa se submeter a um tipo de tratamento médico qualquer.
+                </p>
+
+            <div class="titulo-aba">Os Testes</div>
+                <p>
+                    Nem sempre os jogadores conseguirão executar com êxito as ações pretendidas . Sempre que se tratar de uma ação difícil, na qual exista a possibilidade de erro, será necessário executar um teste para verificar se o jogador foi bem-sucedido ou não. Tais testes trazem um componente de imprevisibilidade que torna incerto o destino dos personagens 
+
+                    No SPAJ, os testes são realizados através do lançamento de três dados comuns de seis faces. Temos, portanto, um universo de 16 possibilidades, ao somarmos o resultado de cada um dos três dados – isto é, pode-se ir de 3 (caso o jogador tire 1 nos três dados) a 18 (caso todos os dados deem 6). 
+
+                    Um Teste 3d é bem-sucedido quando o resultado é menor ou igual a um índice de referência.  por exemplo, uma determinada ação cujo índice de referência seja 14. Em termos de notação, diremos: o personagem deve realizar um Teste 3d:14. Nesse caso, só ocorrerá um fracasso se a soma dos resultados dos três dados for 15, 16, 17 ou 18;
+
+                    indicarão um fracasso. Nesse último caso, temos seis possibilidades de sucesso em um universo de dezesseis resultados possíveis. 
+                    Portanto, o índice de referência mede as chances de sucesso em um Teste 3d: quanto mais alto o índice, maior a probabilidade de sucesso. 
+                </p>
+                <div class="titulo-aba">Determinado Índice de Teste 3D</div>
+                    <p>
+                        Basicamente, o índice de referência varia conforme o nível de aptidão do personagem na ação que pretende executar. O nível de aptidão é informado pelos Atributos e pelas Perícias do personagem, podendo variar de 3 a 17 (o nível médio, portanto, é igual a 10).
+
+                        Digamos, por exemplo, que um personagem esteja correndo para ultrapassar o portão de uma fortaleza, antes que ele se feche. O Mestre determina que, para saber se ele será bem sucedido ou não, o jogador terá que fazer um teste de Agilidade. Digamos que o nível de AGL do personagem é 12; neste caso, o jogador terá que realizar o Teste 3d (isto é, terá que jogar três dados comuns de seis faces) e tirar um resultado somado menor ou igual a 12 – isto é, terá que realizar um Teste 3d-12. Caso a soma dos dados seja maior que 12, o personagem terá fracassado – isto é, o portão terá fechado antes que o personagem consiga ultrapassá-lo; caso o resultado seja menor ou igual a 12, ele terá sido bem-sucedido. 
+                        Independentemente do índice de referência, sempre haverá uma possibilidade de fracasso em um Teste 3d, mesmo que seja uma possibilidade muito pequena. Veremos mais adiante que há casos em que o nível de um personagem em uma determinada ação pode elevar-se acima de 17. Mas, nesse caso, ele sempre será bem sucedido? Não, porque um resultado igual a 18 (isto é, caso o jogador tire 6 nos três dados) sempre significará um fracasso, independentemente do nível de aptidão de um personagem na ação que pretenda executar. 
+                    </p>
+                <div class="titulo-aba">Sucesso Total ou Falha Crítica</div>
+                    <p>
+                        Nas regras de SPAJ, sempre haverá uma mínima possibilidade de sucesso ou fracasso, independentemente do índice de referência. Um resultado igual a 18 num Teste 3d (isto é, caso o jogador tire 6 nos três dados) sempre significará um fracasso completo; contrariamente, se o jogador tirar 3 (isto é, 1 em cada um dos três dados) houve um sucesso absoluto no teste. Essas possibilidades são definidas como falha crítica ou sucesso total, respectivamente. Em termos de jogo, o Mestre deve escolher um determinado ônus ou bônus caso o personagem tire um desses resultados.
+                        Vejamos um exemplo prático de como a falha crítica ou o sucesso total funcionam em termos de jogo. Digamos que o jogador está sendo perseguido por um inimigo, e por isso corre para tentar atravessar um portão antes que ele se feche. Em caso de falha crítica, o Mestre pode decidir que o personagem ficou com a perna presa no portão, sofrendo dano e travando o mecanismo. Já em caso de um sucesso total, o Mestre pode decidir que o personagem não somente cruzou o portão a tempo, como também conseguiu empurrar um inimigo próximo para que ele fique preso no mecanismo. Caberá ao Mestre decidir que bônus ou ônus deve agregar ao resultado, em casos de sucesso total ou falha crítica. 
+                    </p>
+        </section>
+        <footer>
+            <img style="margin-right: 5%;" class="dragao-fim" src="./imagens/logo-footer.png">
+               SPAJ | 2022   
+            <img style="margin-left: 5%;" class="dragao-fim" src="./imagens/logo-footer.png">
+        </footer> 
+    </body>
+</html>
