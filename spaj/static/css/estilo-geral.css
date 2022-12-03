@@ -175,7 +175,6 @@ nav li{
 nav a{
 	color: #f2f2f2;
 	font-weight: 200;
-	font-size: large;
 	text-decoration: none;
 }
 nav a:hover{
@@ -304,14 +303,43 @@ nav a:hover{
 
 /* tela grande pc */
 @media only screen and (min-width:1199px){
+    nav a{
+        font-size: 2.0rem;
+    }
     .dragao-header{
-        width: 5%;
+        width: 6%;
+        marg
     }
     .dragao-fim{
         width: 9%;
     }
     .botao-login{
-        margin-left: 30%;
+        margin-left: 40%;
+    }
+    .dragao-fim{
+        width: 5%;
+    }
+    #img-tela-1{
+        margin-left: 35%;
+        width: 30%;
+        margin-bottom: 5%;
+        margin-top: 3%;
+    }
+    .gambiarra-botao{
+        width: 70%;
+    }
+    .botoes-index{
+        margin-top: 4%;
+        margin-left: 22%;
+    }
+    .dois-dados{
+        width: 30%;
+        margin-left: 36%;
+        margin-bottom: 5%;
+    }
+    .txt-explica{
+        font-size: 1.5rem;
+        margin: 5%;
     }
 }
 

@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,25 +6,25 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Sobre o SPAJ</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='estilo-geral.css'>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/estilo-geral.css' %}">
 </head>
 <body>
     <header>
-        <img style class="dragao-header" src="./imagens/logo.png">
+        <img style class="dragao-header" src="{% static './imagens/logo.png' %}">
             SPAJ
-            <img class="dragao-header" src="./imagens/logo.png">
+            <img class="dragao-header" src="{% static './imagens/logo.png' %}">
             <nav>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="regras.html">Regras</a></li>
-                    <li><a href="introducao.html">Introdução ao Jogo</a></li> <!--VERSAO PROFESSOR SOMENTE OU NA DO ALUNO TBM COM MENSAGEM DE ERRO-->
+                    <li><a href="/home/">Home</a></li>
+                    <li><a href="regras">Regras</a></li>
+                    <li><a href="introducao">Introdução ao Jogo</a></li> <!--VERSAO PROFESSOR SOMENTE OU NA DO ALUNO TBM COM MENSAGEM DE ERRO-->
                 </ul>
         </nav>
     </header>
 
     <section>
         
-        <img class="dois-dados" src="./imagens/vc tem dado em casa.png">
+        <img class="dois-dados" src="{% static './imagens/vc tem dado em casa.png' %}">
         <h2>Projeto SPAJ</h2>
         <p>
             SPAJ é a sigla para Sistema Pedagógico Aula-Jogo e é um projeto criado pelo professor de história Danilo Spinola Caruso, docente do IFRJ- campus Pinheiral. O objetivo do projeto é trazer uma perspectiva mais interativa e divertida da matéria, mas sem deixar de lado a parte didática.
@@ -37,9 +37,9 @@
         </p>
     </section>
     <footer>
-        <img style="margin-right: 5%;" class="dragao-fim" src="./imagens/logo-footer.png">
+        <img style="margin-right: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
            SPAJ | 2022   
-        <img style="margin-left: 5%;" class="dragao-fim" src="./imagens/logo-footer.png">
+        <img style="margin-left: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
     </footer> 
 </body>
 </html>

@@ -44,10 +44,8 @@ def set_ficha (request):
             Vitalidade = int(request.POST.get('vitalidadehtml'))
             Força = int(request.POST.get('forcahtml'))
             Luta = int(request.POST.get('lutahtml'))
-            if ((Sabedoria <= 17) and (Conhecimento <= 17) and (Agilidade <= 17) and (Destreza <= 17) and (ConstFisica <= 17) and (Percepção <= 17)
-                and (Carisma <= 17) and (Vitalidade == ConstFisica) and (Força == ConstFisica)  and (Luta == Agilidade)):
 
-                novaFicha = fichas.objects.create(
+            novaFicha = fichas.objects.create(
                 nomePersonagem = form.cleaned_data.get('nomePersonagem'),
                 historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
                 id_aventura = form.cleaned_data.get('id_aventura'),
@@ -63,7 +61,7 @@ def set_ficha (request):
                 Força = Força,
                 Luta = Luta,
                 )
-                novaFicha.save()
+            novaFicha.save()
             return redirect('/ficha/')
 
 

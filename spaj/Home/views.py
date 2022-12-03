@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-
+def initial(request):
+    return redirect('/home/')
 def register_user(request):
     print(request.user)
     return render(request, 'cadastrar.html')
@@ -52,4 +53,10 @@ def submit_login(request):
     return redirect('http://127.0.0.1:8000/login/')
 
 def introducaoJogo(request):
-        return render(request,'in')
+        return render(request,'introducao.html')
+
+def regras(request):
+    return render(request, 'regras.html')
+
+def sobreSpaj(request):
+    return render(request, 'SPAJ.html')
