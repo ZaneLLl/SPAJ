@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 
 class NovaFicha(forms.ModelForm):
     class Meta:
-        p = (('Pedro', 'pedro'), ('Kaio', 'kaio'))
         model = fichas
         fields = [
             'nomePersonagem', 'historiaPersonagem', 'id_aventura'
@@ -18,7 +17,16 @@ class NovaFicha(forms.ModelForm):
 
         }
 
-    class Media:
-        js = ('./templates/scripts/jv.js')
+class NovaPericia(forms.ModelForm):
+    class Meta:
+        model = pericias
+        fields = [
+            'nome_pericia', 'descrição_pericia'
+        ]
+        widgets = {
+            'nome_pericia': forms.TextInput(attrs={'required': True,'maxlength': 45}),
+            'descrição_pericia': forms.Textarea(attrs={'rows': 3, 'maxlength': 1000})
+        }
+
 
 

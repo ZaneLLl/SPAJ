@@ -24,8 +24,9 @@ class fichas(models.Model):
         return self.nomePersonagem
 
 class pericias(models.Model):
-    nome_pericia = models.CharField(max_length=30, unique=True, blank=False)
-    descrição_pericia = models.CharField(max_length=100)
+    nome_pericia = models.CharField(max_length=30, unique=True, blank=False, verbose_name='Pericia')
+    descrição_pericia = models.CharField(max_length=100, verbose_name='Descrição')
+    bonus = models.IntegerField(default=1, blank=True, null=True)
     conter_pericia = models.ManyToManyField(fichas, related_name='conter_pericia')
 
 class equipamentos(models.Model):

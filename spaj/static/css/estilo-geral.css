@@ -1,151 +1,177 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-*{
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">* {
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
 }
 
 
-button{
-    background-color:#011C26;
+button {
+    background-color: #011C26;
     border-color: transparent;
 }
 
 
-body{
-    background: linear-gradient(to botton, #173840, #011C26);
-    background-color: #011C26;
+body {
+    background-image: linear-gradient(#173840, #011C26);
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    color:#f2f2f2;
+    color: #f2f2f2;
 }
-header{
-    padding-top: 2%;
+
+header {
     padding-bottom: 1%;
+    padding-top: 2%;
     font-size: 35%;
     font-style: oblique;
-	text-align: center;
+    text-align: center;
 }
-header{
+
+header {
     color: #f2f2f2;
-    font-size: xx-large;
+    font-size: 3rem;
     width: 100%;
     background-color: #881616;
     border-radius: 5px;
-    border:hidden;
+    border: hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 5%;
 }
+
+section {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: linear-gradient(to botton, #173840, #011C26);
+    background-color: #011C26;
+    text-align: center;
+}
+
 aside {
     padding-left: 15px;
     margin-left: 15px;
     float: right;
 }
-footer{
-    margin-top: 8%;
+
+footer {
     color: #f2f2f2;
     background-color: #011C26;
-	text-align:center;
+    text-align: center;
     border: hidden;
     font-size: medium;
 }
 
-#txt-botao{
-	text-align: left;
-	float: left;
-	margin-top: 10%;
+#txt-botao {
+    text-align: left;
+    float: left;
+    margin-top: 10%;
 }
-.icon-play{
-	float: left;
-	width: 15%;
-	height: 90%;
+
+.icon-play {
+    float: left;
+    width: 15%;
+    height: 90%;
 }
-#img-ficha{
+
+#img-ficha {
     width: 50%;
 }
-a{
+
+a {
     color: #881616;
 }
-p{
-    margin: 3%;
+
+p {
+    margin: 0;
+    padding: 3%;
     text-align: center;
     color: #f2f2f2;
 }
-h1{
+
+h1 {
     text-align: center;
     color: #f2f2f2;
 }
-h2{
+
+h2 {
     color: #f2f2f2;
-    text-align:center;
+    text-align: center;
     /* enfeitar mais bonitinho (tentar ver a tag border)*/
 }
-h3{
+
+h3 {
     text-align: center;
     color: #f2f2f2;
 }
-.botao-vermelho{
+
+.botao-vermelho {
     background-color: #881616;
     color: #f2f2f2;
     border-color: #f2f2f2;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.titulo-aba{
+
+.titulo-aba {
     background-color: #881616;
     color: #f2f2f2;
     padding: 0.2%;
     font-size: 190%;
     text-align: center;
     border-radius: 5px;
-    border:hidden;
+    border: hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 1%;
     margin-top: 5%;
 }
-.botao-atrb{
-    color:#f2f2f2;
+
+.botao-atrb {
+    float: right;
+    margin-right: 28%;
+    color: #f2f2f2;
     width: 10%;
-    background-color:#011C26;
+    background-color: #011C26;
     border-color: #881616;
     color: #881616;
-    margin-left: 10%;
+    margin-left: 5%;
+
 }
-.botao-atrb-e{
-    color:#f2f2f2;
-    margin-right: 10%;
+
+.botao-atrb-e {
+    float: left;
+    color: #f2f2f2;
+    margin-right: 5%;
     margin-left: 28%;
     width: 10%;
-    background-color:#011C26;
+    background-color: #011C26;
     border-color: #881616;
     color: #881616;
 }
-.input-info{
+
+.input-info {
     width: 20%;
     height: 10%;
 }
-#titulo-site{
+
+#titulo-site {
     width: 20%;
     margin-left: 45%;
     margin-right: 0;
     padding-top: 5%;
 }
-.nome-personagem{
+
+.nome-personagem {
     margin: 6%;
     font-style: italic;
 }
-.vermelho{
-    background-color: rgba(191,17,17,0.6);
+
+.vermelho {
+    background-color: rgba(191, 17, 17, 0.6);
     margin-left: 5%;
     margin-right: 5%;
     padding: 1%;
     margin-bottom: 1%;
     font-style: italic;
 }
-.azul{
+
+.azul {
     background-color: rgba(2, 23, 31, 0.6);
     margin-left: 5%;
     margin-right: 5%;
@@ -154,36 +180,72 @@ h3{
     font-style: italic;
 }
 
-nav{
-	position: -webkit-sticky;
-	position: sticky;
-	text-align: center;
+
+
+
+
+
+
+.navbar-default {
+    background-color: #8B1616;
+    border-color: #8B1616;
 }
-nav ul{
+
+.navbar-default .navbar-nav>li>a {
+    color: #f2f2f2;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #011C26;
+}
+
+nav {
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+}
+
+nav ul {
     float: inline-end;
-	text-align: center;
-	padding: 0;
+    text-align: center;
+    padding: 0;
     margin-top: 1%;
     margin-bottom: 1%;
 }
-nav li{
-	display: inline-block;
-	padding-top:14PX;
-	padding-left: 16px;
-	padding-right: 16px;
+
+ul .dropdown-menu {
+    background-color: #881616;
+    color: #f2f2f2;
 }
-nav a{
-	color: #f2f2f2;
-	font-weight: 200;
-	text-decoration: none;
+
+li a:hover {
+    background-color: #8C0808;
+    color: #f2f2f2;
 }
-nav a:hover{
-	text-decoration: double;
-	color: #f2f2f2;
-	text-shadow: inset -4 px 4px #222;
+
+nav li {
+    display: inline-block;
+    padding-top: 14PX;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+nav a {
+    font-weight: 200;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: double;
+    color: #f2f2f2;
+    text-shadow: inset -4 px 4px #222;
 
 }
-.botao-login{
+
+
+
+
+.botao-login {
     color: #f2f2f2;
     height: 5%;
     background-color: transparent;
@@ -192,6 +254,63 @@ nav a:hover{
     margin-top: 5%;
 }
 
+.titulo {
+    margin-right: 0%;
+    color: #f2f2f2;
+}
+
+.titulo:hover {
+    text-decoration: none;
+    color: #f2f2f2;
+    text-decoration: double;
+}
+
+.box-pts {
+    text-align: center;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    font-size: 3.0rem;
+
+}
+
+#forcaId,
+#vitalidadeId,
+#lutaId {
+    margin-left: 2%;
+    border: 2px solid #BF1111;
+}
+
+#pontos_disponiveisId,
+#pericias_disponiveisId {
+    font-size: 3.7rem;
+    text-align: center;
+    margin-top: 8%;
+    width: 5%;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 2px solid #BF1111;
+}
+
+.botao-transparente {
+    color: #BF1111;
+    background-color: #011C26;
+    border: 1px solid #881616;
+    margin: 4px;
+    margin-top: 2%;
+    border: 1px solid #BF1111;
+    border-radius: 10px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+.box-span {
+    text-align: center;
+    font-size: 3.0rem;
+    margin-top: 3%;
+}
 
 
 
@@ -205,141 +324,214 @@ nav a:hover{
 
 
 
+@media only screen and (max-width:767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #f2f2f2;
+    }
 
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #011C26;
+    }
 
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+        color: #f2f2f2;
+        background-color: #c0392b;
+    }
 
+    button.navbar-toggle {
+        width: 8%;
+    }
 
+    section {
+        margin-top: 10%;
+        ;
+    }
 
+    nav {
+        padding-bottom: 10%;
+    }
 
-
-@media only screen and (max-width:767px){
     h2 {
         font-size: 170%;
         font-style: italic;
     }
+
     p {
         margin-left: 5%;
         margin-right: 5%;
         text-align: center;
         font-size: 120%;
     }
-    header{
+
+    header {
         text-align: center;
 
     }
-    .dragao-header{
+
+    .dragao-header {
         width: 20%;
         padding: 0;
     }
-    .dois-dados{
+
+    .dois-dados {
         width: 50%;
         margin-left: 30%;
         margin-bottom: 5%;
     }
-    .dragao-fim{
+
+    .dragao-fim {
         margin: 0;
         width: 13%;
     }
-    .botao-vermelho{
+
+    .botao-vermelho {
         margin-left: 20%;
         margin-bottom: 5%;
-		margin-top: 10%;
+        margin-top: 10%;
         padding-bottom: 0%;
         text-align: center;
         width: 27%;
         height: 8%;
     }
-    button{
-        width:100%;
+
+    button {
+        width: 80%;
         margin-top: 5%;
     }
-    .gambiarra-botao{
-        width:80%;
+
+    .gambiarra-botao {
+        width: 80%;
     }
-    #img-tela-1{
+
+    #img-tela-1 {
         width: 60%;
         margin-left: 22%;
         margin-top: 10%;
         margin-bottom: 10%;
     }
-    #icon-play{
+
+    #icon-play {
         margin-top: 3%;
         width: 35%;
     }
-    .botao-login{
+
+    .botao-login {
         margin-left: 20%;
     }
-	footer{
-		width: 90%;
+
+    footer {
+        width: 90%;
         margin-left: 6%;
-	}
+    }
+
+    /* arrumando botões da ficha-register na versão mobile */
+    aside {}
 }
 
 /* tela média 1 tablet */
-@media only screen and (min-width:768px) and (max-width:991px){
-    .dragao-header{
+@media only screen and (min-width:768px) and (max-width:991px) {
+    .dragao-header {
         width: 15%;
     }
-    .dragao-fim{
-        width:10%;
+
+    .dragao-fim {
+        width: 10%;
     }
-    .botao-login{
+
+    .botao-login {
         margin-left: 30%;
     }
 }
 
 /* tela média 2 monitor pequeno */
-@media only screen and (min-width:992px) and (max-width:1199px){
-    .dragao-header{
-        width: 15%;
+@media only screen and (min-width:992px) and (max-width:1199px) {
+    .dragao-header {
+        width: 9%;
+        float: left;
+        margin-left: 3%;
     }
-    .dragao-fim{
+
+    .dragao-fim {
         width: 9%;
     }
-    .botao-login{
+
+    .botao-login {
         margin-left: 30%;
+    }
+
+    .user-header {
+        font-size: 1.5rem;
+        margin-right: 2%;
+        margin-top: 2%;
     }
 }
 
 /* tela grande pc */
-@media only screen and (min-width:1199px){
-    nav a{
-        font-size: 2.0rem;
+@media only screen and (min-width:1199px) {
+    section {
+        font-size: 1.8rem
     }
-    .dragao-header{
-        width: 6%;
-        marg
+
+    h2 {
+        font-size: 3.0rem;
     }
-    .dragao-fim{
+
+    footer {
+        margin: 0;
+    }
+
+    nav a {
+        font-size: 1.4rem;
+    }
+
+    .dragao-header {
         width: 9%;
+        float: left;
+        margin-left: 5%;
     }
-    .botao-login{
-        margin-left: 40%;
+
+    .user-header {
+        font-size: 1.5rem;
+        margin-right: 5%;
+        margin-top: 3%;
     }
-    .dragao-fim{
-        width: 5%;
+
+    .dragao-fim {
+        width: 8%;
     }
-    #img-tela-1{
+
+    .botao-login {
+        margin-left: 30%;
+    }
+
+    #img-tela-1 {
         margin-left: 35%;
         width: 30%;
         margin-bottom: 5%;
         margin-top: 3%;
     }
-    .gambiarra-botao{
+
+    .gambiarra-botao {
         width: 70%;
     }
-    .botoes-index{
+
+    .botoes-index {
         margin-top: 4%;
         margin-left: 22%;
     }
-    .dois-dados{
+
+    .dois-dados {
         width: 30%;
         margin-left: 36%;
         margin-bottom: 5%;
     }
-    .txt-explica{
+
+    .texto {
         font-size: 1.5rem;
-        margin: 5%;
+        padding: 5%;
     }
 }
 
@@ -355,31 +547,35 @@ nav a:hover{
 
 
 
-.iniciar{
+.iniciar {
 
     margin: 0;
-        width: 30%;
+    width: 30%;
 
 }
 
-.espadas{
+.espadas {
     margin-top: 2.5%;
     width: 3%;
     height: 3.5%;
 }
-.armaduras{
+
+.armaduras {
 
     width: 3%;
     height: 3.5%;
 }
-.mochila{
+
+.mochila {
 
     width: 3%;
     height: 3.5%;
 }
-h5{
+
+h5 {
     text-align: center;
 }
-h6{
-    text-align:left;
+
+h6 {
+    text-align: left;
 }
