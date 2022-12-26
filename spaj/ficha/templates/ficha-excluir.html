@@ -1,0 +1,23 @@
+{% extends 'biblioteca-fichas.html'%}
+
+{% load static %}
+
+{% block conteudo %}
+
+
+    <h3> Excluir Ficha </h3>
+
+    <p class = "lead"> Confirme para excluir a ficha </p>
+
+    <hr>
+
+    <form action="" method ="POST">
+
+        <p> Deseja excluir a ficha: <b><strong>{{ object }}</b></strong> ? </p>
+
+        {% csrf_token %}
+        <button type = "submit" class = "btn btn-danger"> Excluir </button>
+
+    </form>
+
+{% endblock  %}

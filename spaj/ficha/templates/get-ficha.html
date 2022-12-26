@@ -1,0 +1,50 @@
+{% extends 'biblioteca-fichas.html'%}
+
+{% load static %}
+
+{% block conteudo %}
+    {%for fichas in ficha %}
+        <section>
+                <h1 class="nome-personagem">{{fichas.id}}. {{fichas.nomePersonagem}}</h1>
+                <div class="vermelho">
+                    <h3>Características</h3>                
+                    <p>Nome: {{fichas.nomePersonagem}} </p>
+                    <p>Nível: {{fichas.Level}}</p>
+                    <p>História: {{fichas.historiaPersonagem}}</p>
+                </div>
+                <div class="azul">
+                    <h3>Atributos</h3>
+                    <p>Percepção: {{fichas.Percepção}}</p>
+                    <p>Constituição: {{fichas.ConstFisica}}</p>
+                    <p>Força: {{fichas.Força}} </p>
+                    <p>Sabedoria: {{fichas.Sabedoria}} </p>
+                    <p>Conhecimento: {{fichas.Conhecimento}} </p>
+                    <p>Vitalidade: {{fichas.Vitalidade}}</p>
+                    <p>Carisma: {{fichas.Carisma}}</p>
+                    <p>Luta: {{fichas.Luta}}</p>
+                    <p>Agilidade: {{fichas.Agilidade}}</p>
+                    <p>Destreza: {{fichas.Destreza}}</p>
+                </div>
+                <div class="vermelho">
+                    <h3>Pericias</h3>
+                    <p>Pericia</p>
+                    <p>Pericia</p>
+                    <p>Pericia</p>
+                </div>
+                <div class="azul">
+                    <h3>Equipamentos</h3>
+                    <p>Equip 1</p>
+                    <p>Equip 1</p>
+                    <p>Equip 1</p>
+                </div>        
+            </section>
+        {% endfor %}    
+        <footer>
+            <img style="margin-right: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
+               SPAJ | 2022   
+            <img style="margin-left: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
+        </footer> 
+
+
+
+{% endblock %}
