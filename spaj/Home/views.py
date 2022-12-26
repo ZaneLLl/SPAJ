@@ -21,11 +21,11 @@ def submit_user(request):
         s_user = request.POST.get('password')
         q = User.objects.filter(username=n_user)
         if len(q)>0:
-            messages.error(request, 'Usuário  já cadastrado')
             return render(request, 'cadastrar.html')
         else:
             user = User.objects.create_user(n_user, e_user, s_user)
             user.save()
+            messages.SUCCESS(request, 'Usuário cadastrado')
     return redirect('http://127.0.0.1:8000/login/')
 
 

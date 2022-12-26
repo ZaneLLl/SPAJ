@@ -12,21 +12,11 @@ class NovaFicha(forms.ModelForm):
         ]
         widgets = {
             'nomePersomagem': forms.TextInput(attrs={'required': True,'maxlength': 45}),
-            'historiaPersonagem': forms.Textarea(attrs={'required': False,'rows': 3, 'maxlength': 1000}),
-            'id_aventura': forms.Select(attrs={'required': True,'class': 'form-control'}),
+            'historiaPersonagem': forms.Textarea(attrs={'rows': 3, 'maxlength': 1000}),
+            'id_aventura': forms.Select(attrs={'required': True,'class': 'form-group'}),
 
         }
 
-class NovaPericia(forms.ModelForm):
-    class Meta:
-        model = pericias
-        fields = [
-            'nome_pericia', 'descrição_pericia'
-        ]
-        widgets = {
-            'nome_pericia': forms.TextInput(attrs={'required': True,'maxlength': 45}),
-            'descrição_pericia': forms.Textarea(attrs={'rows': 3, 'maxlength': 1000})
-        }
 
 
 

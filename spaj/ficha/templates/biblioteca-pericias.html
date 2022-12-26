@@ -111,105 +111,31 @@
         </div>
       </div>
     </nav>
-
-    <div class="criacao-ficha">
-      <form
-        style="
-          margin-right: 10%;
-          margin-left: 10%;
-          margin-top: 10%;
-          margin-bottom: 5%;
-          text-align: left;
-        "
-        action="submit"
-        method="POST"
-      >
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="nome_pericia" class="requiredField">
-            Nome Da Pericia:
-            <span class="asteriskField">*</span>
-          </label>
-          <input
-            type="text"
-            id="nome_pericia"
-            name="nome_pericia"
-            class="form-control"
-            required
-            maxlength="45"
-          />
-        </div>
-        <div class="form-group">
-          <label for="Descrição"> Descrição: </label>
-          <textarea
-            id="Descrição"
-            name="Descrição"
-            class="form-control"
-            rows="3"
-            colls="40"
-            maxlength="1000"
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <label for="Atributo1" class="requiredField">
-            Atributo 1 : <span class="asteriskField">*</span>
-          </label>
-          <select
-            type="text"
-            class="form-control"
-            id="Atributo1"
-            name="Atributo1"
-          >
-            <option value="1">Sabedoria</option>
-            <option value="2 ">Conhecimento</option>
-            <option value="3 ">Agilidade</option>
-            <option value="4 ">Destreza</option>
-            <option value="5">Constituição Fisica</option>
-            <option value="6 ">Percepção</option>
-            <option value="7 ">Carisma</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="Atributo2" class="requiredField">
-            Atributo 2 : <span class="asteriskField">*</span>
-          </label>
-          <select
-            type="text"
-            class="form-control"
-            id="Atributo2"
-            name="Atributo2"
-          >
-            <option value="1">Sabedoria</option>
-            <option value="2 ">Conhecimento</option>
-            <option value="3 ">Agilidade</option>
-            <option value="4 ">Destreza</option>
-            <option value="5">Constituição Fisica</option>
-            <option value="6 ">Percepção</option>
-            <option value="7 ">Carisma</option>
-          </select>
-        </div>
-        <div>
-          {% for message in messages %}
-          <div class="alert alert-danger">
-            <strong>Erro!</strong> {{ message }}
-          </div>
-          {% endfor %}
-        </div>
-        <button class="botao-login" type="submit">Criar</button>
-      </form>
-    </div>
+    <h3>Fichas registradas</h3>
+    <hr />
+    <table class="table">
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Opções</th>
+      </tr>
+      {% for pericias in object_list %}
+        <tr>
+          <td>{{ pericias.id }}</td>
+          <td>{{ pericias.nome_pericia }}</td>
+          <td>{{ pericias.descrição_pericia }}</td>
+          <td> 
+            <a href="">Ver</a>
+            <a href="delete/{{ pericias.id }}/">Excluir</a>
+          </td>      
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan = "3"> Nenhum campo registrado.</td>
+        </tr>
+      {% endfor %}
+      </tr>
+    </table>
   </body>
-  <footer>
-    <img
-      style="margin-right: 5%"
-      class="dragao-fim"
-      src="{% static './imagens/logo-footer.png' %}"
-    />
-    SPAJ | 2022
-    <img
-      style="margin-left: 5%"
-      class="dragao-fim"
-      src="{% static './imagens/logo-footer.png' %}"
-    />
-  </footer>
 </html>

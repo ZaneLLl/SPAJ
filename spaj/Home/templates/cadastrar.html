@@ -54,8 +54,7 @@
           <div class="form-group">
             <label for="email">email</label>
             <input
-              type="text"
-              ,
+              type="email"
               class="form-control"
               id="email"
               name="email"
@@ -87,9 +86,13 @@
           </div>
 
           <div>
-            {% for message in messages %}
+            {% for message in messages.error %}
             <div class="alert alert-danger">
               <strong>Erro!</strong> {{ message }}
+            </div>
+            {% endfor %} {% for message in messages.success %}
+            <div class="alert alert-success">
+              <strong>Sucesso! </strong> {{ message }}
             </div>
             {% endfor %}
             <a href="index.html"

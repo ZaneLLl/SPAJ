@@ -75,9 +75,13 @@
           </div>
 
           <div>
-            {% for message in messages %}
+            {% for message in messages.ERROR %}
             <div class="alert alert-danger">
               <strong>Erro!</strong> {{ message }}
+            </div>
+            {% endfor %} {% for message in messages.SUCCESS %}
+            <div class="alert alert-success">
+              <strong>Sucesso! </strong> {{ message }}
             </div>
             {% endfor %}
             <a href="index.html"
