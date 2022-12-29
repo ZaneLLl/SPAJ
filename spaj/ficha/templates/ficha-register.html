@@ -68,7 +68,9 @@
                     <div class="titulo-aba">Dados do Personagem</div>
                     <div>
                         <div class="criacao-ficha" style="margin-right: 5%; margin-left: 10%; text-align: left">
-                                {{form | crispy}}
+                                {{form.nomePersonagem | as_crispy_field}}
+                                {{form.historiaPersonagem | as_crispy_field}}
+                                {{form.id_aventura | as_crispy_field}}
                             </form>   
                         </div>
                     </div>
@@ -203,6 +205,9 @@
                             <strong>Erro!</strong> {{ message }}
                         </div>
                         {% endfor %}
+                    </div>
+                    <div class="criacao-ficha">
+                        {{form.conter_pericia | as_crispy_field}}
                     </div>
                     <button class="botao-login" type="submit">Criar</button>  
             </section>     

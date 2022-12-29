@@ -5,7 +5,8 @@
 {% block conteudo %}
     {%for fichas in ficha %}
         <section>
-                <h1 class="nome-personagem">{{fichas.id}}. {{fichas.nomePersonagem}}</h1>
+                <h1 class="nome-personagem">{{fichas.id}}. {{fichas.nomePersonagem}}</h1>  
+                <h2 class="nome-personagem">Aventura: {{aventura}} 
                 <div class="vermelho">
                     <h3>Características</h3>                
                     <p>Nome: {{fichas.nomePersonagem}} </p>
@@ -26,10 +27,12 @@
                     <p>Destreza: {{fichas.Destreza}}</p>
                 </div>
                 <div class="vermelho">
-                    <h3>Pericias</h3>
-                    <p>Pericia</p>
-                    <p>Pericia</p>
-                    <p>Pericia</p>
+                    <h3>Pericias:</h3>
+                    <br>
+                    {%for pericias in pericia%}
+                        <h4>{{pericias.nome_pericia}} bonus: {{bonus}}</h4>
+                        <br>
+                    {% endfor %}
                 </div>
                 <div class="azul">
                     <h3>Equipamentos</h3>

@@ -112,32 +112,34 @@
       </div>
     </nav>
     {% block conteudo %}
-    <h3>Fichas registradas</h3>
-    <hr />
-    <table class="table">
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>Level</th>
-        <th>Opções</th>
-      </tr>
-      {% for fichas in object_list %}
+      <h3>Fichas registradas</h3>
+      <hr />
+      <table class="table">
         <tr>
-          <td> <a href="https://www.mozilla.org/pt-BR/">{{ fichas.id }}</a></td>
-          <td>{{ fichas.nomePersonagem }}</td>
-          <td>{{ fichas.Level }}</td>
-          <td> 
-            <a href="get-ficha/{{fichas.id}}/">Ver</a>
-            <a href="delete/{{fichas.id}}/">Excluir</a>
-          </td>      
+          <th>#</th>
+          <th>Nome</th>
+          <th>Level</th>
+          <th>Aventura</th>
+          <th>Opções</th>
         </tr>
-        {% empty %}
-        <tr>
-          <td colspan = "3"> Nenhum campo registrado.</td>
+        {% for fichas in object_list %}
+          <tr>
+            <td> <a href="https://www.mozilla.org/pt-BR/">{{ fichas.id }}</a></td>
+            <td>{{ fichas.nomePersonagem }}</td>
+            <td>{{ fichas.Level }}</td>
+            <td>{{fichas.id_aventura}}</td>
+            <td> 
+              <a href="get-ficha/{{fichas.id}}/">Ver</a>
+              <a href="delete/{{fichas.id}}/">Excluir</a>
+            </td>      
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan = "3"> Nenhum campo registrado.</td>
+          </tr>
+        {% endfor %}
         </tr>
-      {% endfor %}
-      </tr>
-    </table>
+      </table>
     {% endblock %}
   </body>
 </html>

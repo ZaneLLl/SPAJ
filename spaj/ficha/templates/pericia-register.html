@@ -111,7 +111,7 @@
         </div>
       </div>
     </nav>
-
+  {% block conteudo %}  
     <div class="criacao-ficha">
       <form
         style="
@@ -197,8 +197,10 @@
         </div>
         <button class="botao-login" type="submit">Criar</button>
       </form>
-    </div>
+   </div>
+  {% endblock %}
   </body>
+
   <footer>
     <img
       style="margin-right: 5%"

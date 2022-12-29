@@ -12,5 +12,5 @@ urlpatterns = [
     path('delete/<int:pk>/', views.fichasDeletview.as_view()),
     path('pericia/delete/<int:pk>/', views.periciasDeletview.as_view()),
     path('get-ficha/<int:pk>/', views.get_ficha),
-
+    path('pericia/get-pericia/<int:pk>/', views.get_pericia),
 ]

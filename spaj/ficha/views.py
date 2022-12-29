@@ -18,9 +18,10 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.http import HttpResponseRedirect
+from braces.views import GroupRequiredMixin, LoginRequiredMixin
 
 @login_required(login_url='http://127.0.0.1:8000/login/')
-def set_ficha (request):
+def set_ficha(request):
     if request.method == 'GET':
         form = NovaFicha()
         context = {
@@ -44,25 +45,45 @@ def set_ficha (request):
             Vitalidade = int(request.POST.get('vitalidadehtml'))
             Força = int(request.POST.get('forcahtml'))
             Luta = int(request.POST.get('lutahtml'))
+            pericia = (form.cleaned_data.get('conter_pericia'))
+            print(pericia)
 
-            novaFicha = fichas.objects.create(
-                nomePersonagem = form.cleaned_data.get('nomePersonagem'),
-                historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
-                id_aventura = form.cleaned_data.get('id_aventura'),
-                Level = Level,
-                Sabedoria = Sabedoria,
-                Agilidade = Agilidade,
-                Conhecimento = Conhecimento,
-                Destreza = Destreza,
-                ConstFisica =  ConstFisica,
-                Percepção = Percepção,
-                Carisma = Carisma,
-                Vitalidade = Vitalidade,
-                Força = Força,
-                Luta = Luta,
-                )
-            novaFicha.save()
-            novaFicha.preencher_ficha.add(request.user)
+            if len(pericia) > Conhecimento:
+                form = NovaFicha(request.POST)
+                context = {
+                    'form': form
+                }
+                messages.error(request, 'Número de pericias maior que o Conhecimento')
+                return render(request, 'ficha-register.html', context=context)
+
+            else:
+                novaFicha = fichas.objects.create(
+                    nomePersonagem = form.cleaned_data.get('nomePersonagem'),
+                    historiaPersonagem = form.cleaned_data.get('historiaPersonagem'),
+                    id_aventura = form.cleaned_data.get('id_aventura'),
+                    Level = Level,
+                    Sabedoria = Sabedoria,
+                    Agilidade = Agilidade,
+                    Conhecimento = Conhecimento,
+                    Destreza = Destreza,
+                    ConstFisica =  ConstFisica,
+                    Percepção = Percepção,
+                    Carisma = Carisma,
+                    Vitalidade = Vitalidade,
+                    Força = Força,
+                    Luta = Luta,
+                    )
+                novaFicha.save()
+                novaFicha.preencher_ficha.add(request.user)
+
+                contador = 0
+                while contador < len(pericia):
+                    print(pericia[contador])
+                    q = pericias.objects.get(nome_pericia= pericia[contador])
+                    print(q)
+                    novaFicha.conter_pericia.add(q.id)
+                    contador = contador + 1
+                    bonus = bonus_pericia(q.id, novaFicha.id)
 
         else:
             form = NovaFicha(request.POST)
@@ -72,23 +93,140 @@ def set_ficha (request):
             messages.error(request, 'Dados incorretos')
             return render(request, 'ficha-register.html', context=context)
 
-        return redirect('fichas/')
+        return redirect('/ficha/')
 
-def get_ficha (request, pk):
+
+@login_required(login_url='http://127.0.0.1:8000/login/')
+def get_ficha(request, pk):
         ficha = fichas.objects.filter(pk=pk)
+        n = fichas.objects.get(pk=pk)
+        pericia = n.conter_pericia.all()
+        contador = 0
+        while len(pericia) > contador :
+            q = n.conter_pericia.get(nome_pericia = pericia[contador])
+            contador = contador + 1
+            bonus = bonus_pericia(q.id, n.id)
+
+        a = fichas.objects.get(pk = n.id)
+        aventura = a.id_aventura
         context = {
-            'ficha': ficha
+            'ficha': ficha, 'pericia': pericia, 'bonus': bonus, 'aventura': aventura
         }
-        return render(request,'get-ficha.html', context)
+        return render(request, 'get-ficha.html', context)
+@login_required(login_url='http://127.0.0.1:8000/login/')
+def get_pericia(request, pk):
+    pericia = pericias.objects.filter(pk=pk)
+    n = pericias.objects.get(pk=pk)
+    if n.atrib1 == 1:
+        a1 = ('Sabedoria')
+    else:
+        if n.atrib1 == 2:
+            a1 = ('Conhecimento')
+        else:
+            if n.atrib1 == 3:
+               a1 = ('Agilidade')
+            else:
+                if n.atrib1 == 4:
+                    a1 = ('Destreza')
+                else:
+                    if n.atrib1 == 5:
+                        a1 = ('Contituição Fisica')
+                    else:
+                        if n.atrib1 == 6:
+                            a1 = ('Percepção')
+                        else:
+                            if n.atrib1 == 7:
+                                a1 = ('Carisma')
+    if n.atrib2 == 1:
+        a2 = ('Sabedoria')
+    else:
+        if n.atrib2 == 2:
+            a2 = ('Conhecimento')
+        else:
+            if n.atrib2 == 3:
+               a2 = ('Agilidade')
+            else:
+                if n.atrib2 == 4:
+                    a2 = ('Destreza')
+                else:
+                    if n.atrib2 == 5:
+                        a2 = ('Contituição Fisica')
+                    else:
+                        if n.atrib2 == 6:
+                            a2 = ('Percepção')
+                        else:
+                            if n.atrib2 == 7:
+                                a2 = ('Carisma')
+                            else:
+                                a2 = 0
 
+    context = {
+        'pericia': pericia, 'a1':a1, 'a2':a2
+    }
+    return render(request, 'get-pericia.html', context)
 
+def bonus_pericia( idPericia, idFicha):
+    pericia = pericias.objects.get(pk=idPericia)
+    a1 = pericia.atrib1
+    a2 = pericia.atrib2
 
+    atributo = fichas.objects.get(pk=idFicha)
+    if a1 == 1:
+        atributo1 = atributo.Sabedoria
+    else:
+        if a1 == 2:
+            atributo1 = atributo.Conhecimento
+        else:
+            if a1 == 3:
+                atributo1 = atributo.Agilidade
+            else:
+                if a1 == 4:
+                    atributo1 = atributo.Destreza
+                else:
+                    if a1 == 5:
+                        atributo1 = atributo.ConstFisica
+                    else:
+                        if a1 == 6:
+                            atributo1 = atributo.Percepção
+                        else:
+                            if a1 == 7:
+                                atributo1 = atributo.Carisma
 
+    if a2 == 1:
+        atributo2 = atributo.Sabedoria
+    else:
+        if a2 == 2:
+            atributo2 = atributo.Conhecimento
+        else:
+            if a2 == 3:
+                atributo2 = atributo.Agilidade
+            else:
+                if a2 == 4:
+                    atributo2 = atributo.Destreza
+                else:
+                    if a2 == 5:
+                        atributo2 = atributo.ConstFisica
+                    else:
+                        if a2 == 6:
+                            atributo2 = atributo.Percepção
+                        else:
+                            if a2 == 7:
+                                atributo2 = atributo.Carisma
+                            else:
+                                atributo2 = atributo1
+
+    bonus = (int(atributo1)+int(atributo2))/2
+
+    return bonus
 
 
 @login_required(login_url='http://127.0.0.1:8000/login/')
 def set_pericia(request):
-        return render(request, 'pericia-register.html')
+        if request.user.is_superuser == 1:
+            return render(request, 'pericia-register.html')
+        else:
+                messages.error(request, 'Usuario sem permissão')
+                return redirect('http://127.0.0.1:8000/')
 
 @csrf_protect
 def submit_pericia(request):
@@ -102,7 +240,7 @@ def submit_pericia(request):
             messages.error(request, 'Pericia  já cadastrada')
             return render(request, 'pericia-register.html')
         else:
-            if(atrib1 == atrib2):
+            if atrib2 == atrib1:
                 atrib2 = 0
 
             pericia = pericias.objects.create(
@@ -116,23 +254,32 @@ def submit_pericia(request):
             return redirect('/ficha/pericias/')
 
 
-class fichasListview(ListView):
+
+class fichasListview(LoginRequiredMixin, ListView):
+    login_url = ('http://127.0.0.1:8000/login/')
     model = fichas
     template_name = 'biblioteca-fichas.html'
 
     def get_queryset(self):
         return fichas.objects.filter(preencher_ficha=self.request.user.id)
 
-class periciasListview(ListView):
+
+class periciasListview(LoginRequiredMixin, ListView):
+    login_url = ('http://127.0.0.1:8000/login/')
     model = pericias
     template_name = 'biblioteca-pericias.html'
 
-class fichasDeletview(DeleteView):
+
+class fichasDeletview(LoginRequiredMixin, DeleteView):
+    login_url = ('http://127.0.0.1:8000/login/')
     model = fichas
     template_name = 'ficha-excluir.html'
     success_url = reverse_lazy('ficha')
 
-class periciasDeletview(DeleteView):
+
+class periciasDeletview(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
+    login_url = ('http://127.0.0.1:8000/login/')
+    group_required = u'Mestre'
     model = pericias
     template_name = 'pericia-excluir.html'
     success_url = reverse_lazy('pericia')

@@ -24,6 +24,13 @@
             SPAJ
             <img style="margin-left: 8%;" class="dragao-header" src="{% static './imagens/logo.png' %}">
         </header>
+         <div>
+                {% for message in messages %}
+                    <div class="alert alert-danger">
+                         <strong>Erro!</strong> {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
         <section>
             <div class="container">
                 <div class="row">
@@ -46,7 +53,6 @@
             </div>
 
             </div>
-
             <div class="row" id="bloco-vermelho">
                 <h1>SPAJ</h1>
                 <div class="bloco-vermelho">

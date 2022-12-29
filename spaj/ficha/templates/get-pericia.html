@@ -111,31 +111,40 @@
         </div>
       </div>
     </nav>
-    <h3>Fichas registradas</h3>
-    <hr />
-    <table class="table">
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Opções</th>
-      </tr>
-      {% for pericias in object_list %}
-        <tr>
-          <td>{{ pericias.id }}</td>
-          <td>{{ pericias.nome_pericia }}</td>
-          <td>{{ pericias.descrição_pericia }}</td>
-          <td> 
-            <a href="get-pericia/{{pericias.id}}/">Ver</a>
-            <a href="delete/{{ pericias.id }}/">Excluir</a>
-          </td>      
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan = "3"> Nenhum campo registrado.</td>
-        </tr>
-      {% endfor %}
-      </tr>
-    </table>
+    <div class="criacao-ficha" style="
+          margin-right: 20%;
+          margin-left: 10%;
+          margin-top: 10%;
+          margin-bottom: 5%;
+          text-align: left;
+        ">
+        <div class="form-group">
+            {%for pericias in pericia%}
+                <br>
+                <h3>Nome:{{pericias.nome_pericia}}</h3>
+                <h4>Descrição:{{pericias.descrição_pericia}}</h4>
+                {% if a2 == 0 %}
+                    <h4> Calculo de bonus: O bonus é o  atributo {{a1}}</h4>
+                {% else %}
+                    <h4> Calculo de bonus: O bonus é a media entre o atributo {{a1}} e {{a2}}</h4>
+                {% endif %}
+                <br>
+            {% endfor %}
+        </div>
+    </div>
   </body>
-</html>
+
+  <footer>
+    <img
+      style="margin-right: 5%"
+      class="dragao-fim"
+      src="{% static './imagens/logo-footer.png' %}"
+    />
+    SPAJ | 2022
+    <img
+      style="margin-left: 5%"
+      class="dragao-fim"
+      src="{% static './imagens/logo-footer.png' %}"
+    />
+  </footer>
+</html>            

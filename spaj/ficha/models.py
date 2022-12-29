@@ -2,7 +2,13 @@ from aventura.models import aventuras
 from django.db import models
 from django.contrib.auth.models import User
 
-
+class pericias(models.Model):
+    nome_pericia = models.CharField(max_length=30, unique=True, blank=False, verbose_name='Pericia')
+    descrição_pericia = models.CharField(max_length=100, verbose_name='Descrição')
+    atrib1 = models.IntegerField(default='1', blank=False, null=False)
+    atrib2 = models.IntegerField(default='1', blank=False, null=False)
+    def __str__(self):
+        return self.nome_pericia
 class fichas(models.Model):
     nomePersonagem = models.CharField(max_length=45, verbose_name='Nome do Personagem', blank=False, null=False)
     historiaPersonagem = models.TextField(max_length=1000, verbose_name= 'Historia do Personagem')
@@ -19,18 +25,13 @@ class fichas(models.Model):
     Luta = models.IntegerField(blank=False)
     preencher_ficha = models.ManyToManyField(User)
     id_aventura = models.ForeignKey(aventuras, on_delete=models.CASCADE, blank=False, verbose_name='Aventura')
+    conter_pericia = models.ManyToManyField(pericias, related_name='conter_pericia', verbose_name='Pericias')
+
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.nomePersonagem)
 
-class pericias(models.Model):
-    nome_pericia = models.CharField(max_length=30, unique=True, blank=False, verbose_name='Pericia')
-    descrição_pericia = models.CharField(max_length=100, verbose_name='Descrição')
-    atrib1 = models.CharField(default='1', blank=False, null=False, max_length=20)
-    atrib2 = models.CharField(default='1', blank=False, null=False, max_length=20)
-    conter_pericia = models.ManyToManyField(fichas, related_name='conter_pericia')
-    def __str__(self):
-        return '{}. {}'.format(self.id, self.nome_pericia)
+
 
 class equipamentos(models.Model):
     nome_equi = models.CharField(max_length=20, unique=True, blank=False)
