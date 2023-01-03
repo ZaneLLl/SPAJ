@@ -25,6 +25,7 @@ class equipamentos(models.Model):
     dano = models.IntegerField(blank=True, null=True)
     defesa = models.IntegerField(blank=True, null=True)
     descrição = models.CharField(max_length=100)
+    combate = models.BooleanField(default='False', blank=False, null=False)
     def __str__(self):
         return self.nome_equi
 

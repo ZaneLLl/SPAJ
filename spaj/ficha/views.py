@@ -46,8 +46,7 @@ def set_ficha(request):
             Luta = int(request.POST.get('lutahtml'))
             pericia = (form.cleaned_data.get('conter_pericia'))
             equipamento = (form.cleaned_data.get('possuir_equipamento'))
-            print(Força)
-            print(Luta)
+
 
             if len(pericia) > Conhecimento:
                 form = NovaFicha(request.POST)
@@ -78,7 +77,7 @@ def set_ficha(request):
                 print(ListaUser)
                 l = ListaUser.jogar_aventura.all()
                 print(l)
-                if len(l) > 0:
+                if request.user.id in l:
 
                     form = NovaFicha(request.POST)
                     context = {
@@ -361,3 +360,6 @@ def getAventura(request, pk):
         'aventura': aventura
     }
     return render(request, 'get-aventuras.html', context=context)
+
+def setEquipamento(request):
+    return render(request, 'equipamento-register.html')

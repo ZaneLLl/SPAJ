@@ -27,3 +27,7 @@ class NovaAventura(forms.ModelForm):
             'nomeAventura', 'guia_de_ambiente', 'historia_aventura'
         ]
 
+class NovoEquipamento:
+    class Meta:
+        model = equipamentos
+        fields = '__all__'
