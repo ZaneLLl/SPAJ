@@ -20,7 +20,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'aventura.apps.AventuraConfig',
     'ficha.apps.FichaConfig',
     'Home.apps.HomeConfig',
     'django.contrib.admin',

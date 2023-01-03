@@ -4,13 +4,12 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import fichas, equipamentos, pericias, possuir_equipamento
+from .models import fichas, equipamentos, pericias, aventuras
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django import forms
 from django.db.models import Q
-from aventura.models import aventuras
-from .forms import NovaFicha
+from .forms import NovaFicha, NovaAventura
 from django.core.paginator import Paginator
 from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView
 from django.views.generic.edit import FormView
@@ -34,7 +33,7 @@ def set_ficha(request):
             'form': form
         }
         if form.is_valid():
-            Level = int(request.POST.get('levelhtml'))
+            Level = (request.POST.get('levelhtml'))
             Sabedoria = int(request.POST.get('sabedoriahtml'))
             Conhecimento = int(request.POST.get('conhecimentohtml'))
             Agilidade = int(request.POST.get('agilidadehtml'))
@@ -46,7 +45,9 @@ def set_ficha(request):
             Força = int(request.POST.get('forcahtml'))
             Luta = int(request.POST.get('lutahtml'))
             pericia = (form.cleaned_data.get('conter_pericia'))
-            print(pericia)
+            equipamento = (form.cleaned_data.get('possuir_equipamento'))
+            print(Força)
+            print(Luta)
 
             if len(pericia) > Conhecimento:
                 form = NovaFicha(request.POST)
@@ -73,17 +74,37 @@ def set_ficha(request):
                     Força = Força,
                     Luta = Luta,
                     )
-                novaFicha.save()
-                novaFicha.preencher_ficha.add(request.user)
+                ListaUser = aventuras.objects.get(nomeAventura = novaFicha.id_aventura)
+                print(ListaUser)
+                l = ListaUser.jogar_aventura.all()
+                print(l)
+                if len(l) > 0:
 
-                contador = 0
-                while contador < len(pericia):
-                    print(pericia[contador])
-                    q = pericias.objects.get(nome_pericia= pericia[contador])
-                    print(q)
-                    novaFicha.conter_pericia.add(q.id)
-                    contador = contador + 1
-                    bonus = bonus_pericia(q.id, novaFicha.id)
+                    form = NovaFicha(request.POST)
+                    context = {
+                        'form': form
+                    }
+                    messages.error(request, 'O Usuário já está jogando  a aventura')
+                    return render(request, 'ficha-register.html', context=context)
+                else:
+
+                    novaFicha.save()
+                    novaFicha.preencher_ficha.add(request.user)
+                    novaFicha.id_aventura.jogar_aventura.add(request.user.id)
+
+                    contador = 0
+                    while contador < len(pericia):
+                        q = pericias.objects.get(nome_pericia= pericia[contador])
+                        novaFicha.conter_pericia.add(q.id)
+                        contador = contador + 1
+
+                    contador2 = 0
+                    while contador2 < len(equipamento):
+                        print(equipamento[contador2])
+                        r = equipamentos.objects.get(nome_equi=equipamento[contador2])
+                        print(r)
+                        novaFicha.possuir_equipamento.add(r.id)
+                        contador2 = contador2 + 1
 
         else:
             form = NovaFicha(request.POST)
@@ -235,6 +256,7 @@ def submit_pericia(request):
         descricaopericia = request.POST.get('Descrição')
         atrib1 = request.POST.get('Atributo1')
         atrib2 = request.POST.get('Atributo2')
+        combate = request.POST.get('combate')
         q = pericias.objects.filter(nome_pericia= nomepericia)
         if len(q)>0:
             messages.error(request, 'Pericia  já cadastrada')
@@ -247,11 +269,12 @@ def submit_pericia(request):
                 nome_pericia =  nomepericia,
                 descrição_pericia = descricaopericia,
                 atrib1 = int(atrib1),
-                atrib2 = int(atrib2)
+                atrib2 = int(atrib2),
+                combate = bool(combate)
                 )
             pericia.save()
 
-            return redirect('/ficha/pericias/')
+            return redirect('/ficha/pericia/')
 
 
 
@@ -284,5 +307,57 @@ class periciasDeletview(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     template_name = 'pericia-excluir.html'
     success_url = reverse_lazy('pericia')
 
+def setAventura(request):
+    if request.method == 'GET':
+        form = NovaAventura()
+        context = {
+            'form': form
+        }
+        return render (request, 'aventura-register.html', context = context)
+
+    else:
+        form = NovaAventura(request.POST)
+        context = {
+            'form': form
+        }
+        if form.is_valid():
+            novaAventura = aventuras.objects.create(
+
+                nomeAventura = form.cleaned_data.get('nomeAventura'),
+                guia_de_ambiente = form.cleaned_data.get('guia_de_ambiente'),
+                historia_aventura =  form.cleaned_data.get('historia_aventura')
+                )
+
+            novaAventura.save()
+            return redirect('aventuras/')
+
+        else:
+            form = NovaAventura(request.POST)
+            context = {
+                    'form': form
+            }
+            messages.error(request, 'Dados incorretos')
+            return render(request, 'aventura-register.html', context=context)
+
+class aventurasListview(ListView):
+    model = aventuras
+    template_name = 'biblioteca-aventuras.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(aventurasListview, self).get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+class aventurasDeletview(GroupRequiredMixin, DeleteView):
+    login_url = ('http://127.0.0.1:8000/login/')
+    model = aventuras
+    group_required = u'Mestre'
+    template_name = 'aventura-excluir.html'
+    success_url = reverse_lazy('aventuras')
 
 
+def getAventura(request, pk):
+    aventura = aventuras.objects.filter(pk=pk)
+    context={
+        'aventura': aventura
+    }
+    return render(request, 'get-aventuras.html', context=context)

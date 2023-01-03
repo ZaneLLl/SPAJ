@@ -25,7 +25,6 @@ def submit_user(request):
         else:
             user = User.objects.create_user(n_user, e_user, s_user)
             user.save()
-            messages.SUCCESS(request, 'Usuário cadastrado')
     return redirect('http://127.0.0.1:8000/login/')
 
 

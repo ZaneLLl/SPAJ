@@ -55,7 +55,7 @@
                     </li>
                 </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="./pag-login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="./pag-login.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,6 +64,13 @@
         <form method= "POST" action="submit" class="criacao-ficha">
             <section class="criacao-ficha">
                     <h1>Criação de Ficha</h1>
+                    <div>
+                        {% for message in messages %}
+                        <div class="alert alert-danger">
+                            <strong>Erro!</strong> {{ message }}
+                    </div>
+                        {% endfor %}
+                    </div>
                     {% csrf_token %}
                     <div class="titulo-aba">Dados do Personagem</div>
                     <div>
@@ -199,15 +206,9 @@
                         <br>
                         <br>
                     </div>
-                    <div>
-                        {% for message in messages %}
-                        <div class="alert alert-danger">
-                            <strong>Erro!</strong> {{ message }}
-                        </div>
-                        {% endfor %}
-                    </div>
                     <div class="criacao-ficha">
                         {{form.conter_pericia | as_crispy_field}}
+                        {{form.possuir_equipamento | as_crispy_field}}
                     </div>
                     <button class="botao-login" type="submit">Criar</button>  
             </section>     
