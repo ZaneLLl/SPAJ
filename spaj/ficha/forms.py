@@ -7,14 +7,14 @@ class NovaFicha(forms.ModelForm):
     class Meta:
         model = fichas
         fields = [
-            'nomePersonagem', 'historiaPersonagem', 'id_aventura', 'conter_pericia','possuir_equipamento'
+            'nomePersonagem', 'historiaPersonagem', 'id_aventura', 'conter_pericia','possuir_equipamento', 'classe_social'
         ]
 
         widgets = {
             'nomePersomagem': forms.TextInput(attrs={'required': True,'maxlength': 45}),
             'historiaPersonagem': forms.Textarea(attrs={'rows': 3, 'maxlength': 1000}),
             'id_aventura': forms.Select(attrs={'required': True,'class': 'form-group'}),
-            'conter_pericia': forms.CheckboxSelectMultiple(attrs={'class': 'form-group'}),
+            'conter_pericia': forms.CheckboxSelectMultiple(attrs={'class': 'form-group', 'type': 'checkbox'}),
             'possuir_equipamento': forms.CheckboxSelectMultiple(attrs={'class': 'form-group'}),
 
         }
@@ -27,7 +27,10 @@ class NovaAventura(forms.ModelForm):
             'nomeAventura', 'guia_de_ambiente', 'historia_aventura'
         ]
 
-class NovoEquipamento:
+class NovoEquipamento(forms.ModelForm):
     class Meta:
         model = equipamentos
         fields = '__all__'
+
+
+

@@ -121,11 +121,25 @@
                         <p>Historia: {{aventuras.historia_aventura}}</p>
                         <p>Guia de Ambiente: {{aventuras.guia_de_ambiente}}</p>
                     </div>
-                </section>
-            </boody>
-        {% endfor %}    
+                    <div class="aazul">
+                        <h3>Personagens participantes:</h3>
+                        {%for jogador in jogadores %}
+                          <a>{{jogador.id}}. {{jogador.nomePersonagem}},</a>
+                        {% endfor %} 
+
+                    </div>
+              </section>
+              <h1 class="nome-personagem">Simulador de combate</h1>
+              <form method="POST" action="/ficha/combate/{{aventuras.id}}/" class="criacao-ficha">{% csrf_token %}
+                <button class="botao-login" >Simular</button>
+              </form>
+            {% endfor %}
+
+    </boody>
+          
         <footer>
             <img style="margin-right: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
                SPAJ | 2022   
             <img style="margin-left: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
         </footer> 
+</html>

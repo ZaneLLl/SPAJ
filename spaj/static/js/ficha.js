@@ -1,3 +1,5 @@
+
+
 var atributos = [1, 0, 0, 0, 0, 0, 0, 0]
 
 var forca = 0
@@ -5,9 +7,11 @@ var vitalidade = 0
 var luta = 0
 
 var pontos_disponiveis = 7
+var pericias_disponiveis
 
 var vartranscicao
 var vartranscicao2
+var n = 0
 
 
 
@@ -34,7 +38,7 @@ function adição(atribId, atrib) {
             }
         }
 
-        if (atribId == 'constituicao_fisica' || atribId == 'destreza' || atribId == 'agilidade') {
+        if (atribId == 'constituicao_fisica' || atribId == 'destreza' || atribId == 'agilidade' || atribId == 'conhecimento') {
 
             if (atribId == 'constituicao_fisica') {
                 vitalidade = atributos[5]
@@ -51,6 +55,14 @@ function adição(atribId, atrib) {
                 vartranscicao = window.document.getElementById('lutaId')
                 vartranscicao.innerHTML = Math.floor((atributos[3] + atributos[4]) / 2)
             }
+
+            if (atribId == 'conhecimento') {
+
+                pericias_disponiveis = atributos[2]
+                vartranscicao = document.getElementById('periciasDisponiveis')
+                vartranscicao.innerHTML = pericias_disponiveis
+            }
+
         }
 
 
@@ -107,6 +119,10 @@ function adição(atribId, atrib) {
         luta = 0
         vartranscicao = window.document.getElementById('lutaId')
         vartranscicao.innerHTML = 0
+
+        pericias_disponiveis = atributos[2]
+        vartranscicao = document.getElementById('periciasDisponiveis')
+        vartranscicao.innerHTML = pericias_disponiveis
 
         pontos_disponiveis = atributos[0] * 7
         vartranscicao2 = window.document.getElementById('pontos_disponiveisId')
@@ -183,6 +199,9 @@ function subtrair(atribId, atrib) {
         vartranscicao = window.document.getElementById('lutaId')
         vartranscicao.innerHTML = 0
 
+        pericias_disponiveis = atributos[2]
+        vartranscicao = document.getElementById('periciasDisponiveis')
+        vartranscicao.innerHTML = pericias_disponiveis
 
         pontos_disponiveis = atributos[0] * 7
         vartranscicao2 = window.document.getElementById('pontos_disponiveisId')
@@ -190,7 +209,7 @@ function subtrair(atribId, atrib) {
 
     }
 
-    if (atribId == 'constituicao_fisica' || atribId == 'destreza' || atribId == 'agilidade') {
+    if (atribId == 'constituicao_fisica' || atribId == 'destreza' || atribId == 'agilidade' || atribId == 'conhecimento') {
 
 
 
@@ -212,6 +231,14 @@ function subtrair(atribId, atrib) {
             vartranscicao = window.document.getElementById('lutaId')
             vartranscicao.innerHTML = Math.floor((atributos[3] + atributos[4]) / 2)
         }
+
+        if (atribId == 'conhecimento') {
+
+            pericias_disponiveis = atributos[2]
+            vartranscicao = document.getElementById('periciasDisponiveis')
+            vartranscicao.innerHTML = pericias_disponiveis
+        }
+
     }
 }
 
@@ -227,4 +254,55 @@ function iniciarbotao() {
     window.document.getElementById('vitalidadehtml').value = vitalidade
     window.document.getElementById('forcahtml').value = forca
     window.document.getElementById('lutahtml').value = luta
+}
+
+controlPericias()
+
+function controlPericias() {
+    let aux
+    let checkboxes = document.querySelectorAll(".form-check-input")
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("change", bindClick(i));
+    }
+
+    function bindClick(i) {
+        return function () {
+
+            if (checkboxes[i].checked) {
+                pericias_disponiveis--
+                aux = document.getElementById('periciasDisponiveis')
+                aux.innerHTML = pericias_disponiveis
+
+            } else {
+
+                pericias_disponiveis++
+                aux = document.getElementById('periciasDisponiveis')
+                aux.innerHTML = pericias_disponiveis
+
+            }
+
+            if (pericias_disponiveis <= 0) {
+
+                for (let i = 0; i < checkboxes.length; i++) {
+
+                    if (checkboxes[i].checked) {
+
+                    } else {
+                        checkboxes[i].disabled = true
+                    }
+
+                }
+            }
+
+            if (pericias_disponiveis != 0) {
+                for (let i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].disabled = false
+
+                }
+            }
+
+        }
+    }
+
 }

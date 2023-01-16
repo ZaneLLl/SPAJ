@@ -11,7 +11,6 @@ from django.db.models import Q
 def initial(request):
     return redirect('/home/')
 def register_user(request):
-    print(request.user)
     return render(request, 'cadastrar.html')
 
 def submit_user(request):
@@ -29,11 +28,15 @@ def submit_user(request):
 
 
 def home(request):
-    return render(request, 'home.html')
+    user = request.user
+    context ={
+        'user':user
+    }
+    return render(request, 'home.html', context=context)
 
 def logout_user(request):
     logout(request)
-    return redirect('http://127.0.0.1:8000/home/')
+    return redirect('http://127.0.0.1:8000/')
 
 def login_user(request):
     return render(request, 'login.html')
@@ -52,10 +55,14 @@ def submit_login(request):
     return redirect('http://127.0.0.1:8000/login/')
 
 def introducaoJogo(request):
-        return render(request,'introducao.html')
+    return render(request,'introducao.html')
 
-def regras(request):
-    return render(request, 'regras.html')
+def atributos(request):
+    return render(request, 'atributos.html')
 
 def sobreSpaj(request):
     return render(request, 'SPAJ.html')
+def pericias(request):
+    return render (request, 'pericias.html')
+def regras(request):
+    return render(request, 'regras.html')

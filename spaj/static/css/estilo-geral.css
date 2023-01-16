@@ -4,15 +4,13 @@
     box-sizing: border-box;
 }
 
-
 button {
     background-color: #011C26;
     border-color: transparent;
 }
 
-
 body {
-    background-image: linear-gradient(#173840, #011C26);
+    background-color: #011C26;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #f2f2f2;
@@ -39,8 +37,6 @@ header {
 section {
     padding-top: 5%;
     padding-bottom: 5%;
-    background: linear-gradient(to botton, #173840, #011C26);
-    background-color: #011C26;
     text-align: center;
 }
 
@@ -52,7 +48,7 @@ aside {
 
 footer {
     color: #f2f2f2;
-    background-color: #011C26;
+    background-color: transparent;
     text-align: center;
     border: hidden;
     font-size: medium;
@@ -105,7 +101,6 @@ h3 {
     background-color: #881616;
     color: #f2f2f2;
     border-color: #f2f2f2;
-    border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -119,8 +114,47 @@ h3 {
     border: hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 1%;
-    margin-top: 5%;
 }
+
+
+.black-input {
+    background-color: transparent;
+}
+
+.table-striped>tbody>tr:nth-child(2n+1)>td,
+.table-striped>tbody>tr:nth-child(2n+1)>th {
+    background-color: #122C33;
+}
+
+.table>tbody>tr>td {
+    border-color: transparent;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+table {
+    margin-right: 10%;
+    width: 100%;
+}
+
+footer {
+    color: #f2f2f2;
+    background-color: transparent;
+    text-align: center;
+    border: hidden;
+    font-size: medium;
+    width: 100%;
+}
+
+
+
+
+
+
+/* botao + e - da tela de criação de fichas */
 
 .botao-atrb {
     float: right;
@@ -131,7 +165,6 @@ h3 {
     border-color: #881616;
     color: #881616;
     margin-left: 5%;
-
 }
 
 .botao-atrb-e {
@@ -144,6 +177,16 @@ h3 {
     border-color: #881616;
     color: #881616;
 }
+
+.btn-danger {
+    background-color: #8b1616;
+    border-color: #8b1616;
+}
+
+
+
+
+
 
 .input-info {
     width: 20%;
@@ -158,12 +201,29 @@ h3 {
 }
 
 .nome-personagem {
-    margin: 6%;
+    margin-top: 6%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
     font-style: italic;
+    color: black;
+    border-style: double;
+    border-color: #8b1616;
+
 }
 
+.special-p {
+    color: black;
+}
+
+.special-body {
+    background-color: #f2f2f2;
+}
+
+/* blocos estilizados */
 .vermelho {
-    background-color: rgba(191, 17, 17, 0.6);
+    border-style: double;
+    border-color: #881616;
     margin-left: 5%;
     margin-right: 5%;
     padding: 1%;
@@ -171,88 +231,18 @@ h3 {
     font-style: italic;
 }
 
-.azul {
-    background-color: rgba(2, 23, 31, 0.6);
-    margin-left: 5%;
-    margin-right: 5%;
-    padding: 1%;
-    margin-bottom: 1%;
-    font-style: italic;
+aside {
+    margin-top: 9.6%;
+}
+
+.p-aside {
+    padding-bottom: 5%;
 }
 
 
 
 
 
-
-
-.navbar-default {
-    background-color: #8B1616;
-    border-color: #8B1616;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: #f2f2f2;
-}
-
-.navbar-default .navbar-nav>li>a:hover {
-    color: #011C26;
-}
-
-nav {
-    position: -webkit-sticky;
-    position: sticky;
-    text-align: center;
-}
-
-nav ul {
-    float: inline-end;
-    text-align: center;
-    padding: 0;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-
-ul .dropdown-menu {
-    background-color: #881616;
-    color: #f2f2f2;
-}
-
-li a:hover {
-    background-color: #8C0808;
-    color: #f2f2f2;
-}
-
-nav li {
-    display: inline-block;
-    padding-top: 14PX;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-nav a {
-    font-weight: 200;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: double;
-    color: #f2f2f2;
-    text-shadow: inset -4 px 4px #222;
-
-}
-
-
-
-
-.botao-login {
-    color: #f2f2f2;
-    height: 5%;
-    background-color: transparent;
-    border-color: #8B1616;
-    width: 20%;
-    margin-top: 5%;
-}
 
 .titulo {
     margin-right: 0%;
@@ -312,6 +302,82 @@ nav a:hover {
     margin-top: 3%;
 }
 
+.spaj-link {
+    color: #f2f2f2;
+    text-decoration: none;
+
+}
+
+.spaj-link:hover {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+/* estilizando a tela de combate */
+#special-section {
+    margin-top: 10%;
+}
+
+.button {
+    color: #D42222;
+    background-color: #011C26;
+    border: 1px solid #881616;
+    margin: 4px;
+    margin-top: 2%;
+    border: 1px solid #BF1111;
+    border-radius: 10px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+.button:hover {
+    color: #f2f2f2;
+    background-color: #BF1111;
+}
+
+#TurnoDe {
+    margin-top: 8%;
+    font-size: 2.0rem;
+    font-weight: 1.5px;
+    font-style: oblique;
+    background-color: #8b1616;
+
+}
+
+#selectEnemy {
+    color: #f2f2f2;
+    background-color: #8b1616;
+    border: 1px solid #f2f2f2;
+    margin: 4px;
+    margin-top: 2%;
+    border: 1px solid #BF1111;
+    border-radius: 10px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+#selectEnemy:hover {
+    color: #f2f2f2;
+    background-color: #BF1111;
+}
+
+#AtackEnemy {
+    padding-top: 2%;
+    font-size: 1.6rem;
+}
+
+input #dados {
+    color: black;
+}
+
+
+
+
+/* get ficha estilização */
 
 
 
@@ -319,39 +385,12 @@ nav a:hover {
 
 
 
-
-
-
-
+/* Responsividade com as media query */
 
 @media only screen and (max-width:767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-        color: #f2f2f2;
-    }
-
-    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
-        color: #011C26;
-    }
-
-    .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
-    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
-        color: #f2f2f2;
-        background-color: #c0392b;
-    }
-
-    button.navbar-toggle {
-        width: 8%;
-    }
-
     section {
         margin-top: 10%;
         ;
-    }
-
-    nav {
-        padding-bottom: 10%;
     }
 
     h2 {
@@ -371,14 +410,12 @@ nav a:hover {
 
     }
 
-    .dragao-header {
-        width: 20%;
-        padding: 0;
+    .dragao-header2 {
+        width: 10%;
     }
 
     .dois-dados {
         width: 50%;
-        margin-left: 30%;
         margin-bottom: 5%;
     }
 
@@ -418,48 +455,86 @@ nav a:hover {
         width: 35%;
     }
 
-    .botao-login {
-        margin-left: 20%;
-    }
-
     footer {
         width: 90%;
         margin-left: 6%;
     }
 
     /* arrumando botões da ficha-register na versão mobile */
-    aside {}
+    .btn-danger {
+        padding: 1% 0% 1% 0%;
+    }
 }
 
 /* tela média 1 tablet */
 @media only screen and (min-width:768px) and (max-width:991px) {
-    .dragao-header {
-        width: 15%;
+    h3 {
+        margin-top: 5%;
+    }
+
+    p {
+        font-size: 1.4rem;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+    .dragao-header2 {
+        width: 10%;
     }
 
     .dragao-fim {
         width: 10%;
     }
 
-    .botao-login {
-        margin-left: 30%;
+    .btn-danger {
+        padding: 1% 6% 1% 6%;
+    }
+
+    .botao-vermelho {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .dois-dados {
+        width: 50%;
+        margin-bottom: 5%;
+    }
+
+    #bloco {
+        margin-right: 48%;
+    }
+
+    .special-p {
+        font-size: 1.8rem;
+    }
+
+    #img-ficha {
+        width: 35%;
     }
 }
 
 /* tela média 2 monitor pequeno */
 @media only screen and (min-width:992px) and (max-width:1199px) {
-    .dragao-header {
-        width: 9%;
-        float: left;
-        margin-left: 3%;
+    p {
+        font-size: 1.4rem;
+        margin-left: 4%;
+        margin-right: 4%;
+        text-align: center;
+    }
+
+    h3 {
+        padding-top: 5%;
+    }
+
+    .dragao-header2 {
+        width: 10%;
     }
 
     .dragao-fim {
         width: 9%;
-    }
-
-    .botao-login {
-        margin-left: 30%;
     }
 
     .user-header {
@@ -467,12 +542,44 @@ nav a:hover {
         margin-right: 2%;
         margin-top: 2%;
     }
+
+    .btn-danger {
+        padding: 1% 6% 1% 6%;
+    }
+
+    .dois-dados {
+        width: 40%;
+    }
+
+    .botao-vermelho {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    #bloco {
+        margin-right: 40%;
+    }
+
+    .special-p {
+        font-size: 1.8rem;
+    }
 }
 
 /* tela grande pc */
 @media only screen and (min-width:1199px) {
     section {
-        font-size: 1.8rem
+        font-size: 1.8rem;
+
+    }
+
+    h3 {
+        padding-top: 5%;
+    }
+
+    .dragao-header2 {
+        width: 14%;
     }
 
     h2 {
@@ -487,12 +594,6 @@ nav a:hover {
         font-size: 1.4rem;
     }
 
-    .dragao-header {
-        width: 9%;
-        float: left;
-        margin-left: 5%;
-    }
-
     .user-header {
         font-size: 1.5rem;
         margin-right: 5%;
@@ -501,10 +602,6 @@ nav a:hover {
 
     .dragao-fim {
         width: 8%;
-    }
-
-    .botao-login {
-        margin-left: 30%;
     }
 
     #img-tela-1 {
@@ -525,7 +622,6 @@ nav a:hover {
 
     .dois-dados {
         width: 30%;
-        margin-left: 36%;
         margin-bottom: 5%;
     }
 
@@ -533,6 +629,12 @@ nav a:hover {
         font-size: 1.5rem;
         padding: 5%;
     }
+
+    #bloco {
+
+        margin-right: 30%;
+    }
+
 }
 
 
@@ -545,7 +647,7 @@ nav a:hover {
 
 
 
-
+/* coisa do samuel. */
 
 .iniciar {
 

@@ -1,10 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %} {% load crispy_forms_tags%}
+<html>
+  <head>
+    <title>SPAJ</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="{% static './imagens/logo-footer.png' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="images/icone-minecraft-bookshelf.jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <!-- linkando os arquivos de css e js-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/estilo-geral.css' %}"
+    />
+    <script defer src="{% static 'js/ficha.js' %}"></script>
+  </head>
 
-</body>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="/home/" class="navbar-brand"
+            ><img class="dragao-header" src="{% static './imagens/logo.png' %}"
+          /></a>
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#barraNav"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="barraNav" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                >Fichas<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="./ficha-register.html" target="_blank">Nova Ficha</a>
+                </li>
+                <li>
+                  <a href="./biblioteca-fichas.html" target="_blank"
+                    >Biblioteca de Fichas</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                aria-expanded="false"
+                >Sessão<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="./sessao.html">Sessão</a></li>
+                <li><a href="./cadastro.html">Cadastros</a></li>
+                <li><a href="./novos-itens.html">Banco de Itens</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                aria-expanded="false"
+                >Regras<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="./introducao.html">Introdução ao jogo</a></li>
+                <li><a href="./SPAJ.html">Sobre o SPAJ</a></li>
+                <li><a href="./pericias.html">Perícias</a></li>
+                <li><a href="./atributos.html">Atributos</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="./pag-login.html"
+                ><span class="glyphicon glyphicon-log-in"></span> Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <body> 
+    <form method= "POST" action="submit" class="criacao-ficha">
+      <section class="criacao-ficha">
+        {% csrf_token %}
+        <div class="criacao-ficha" style="margin-right: 5%; margin-left: 10%;margin-top: 5%;  text-align: left">
+          {{form | crispy}}
+          <button class="botao-login" type = 'submit'> Criar </button>
+        </div>
+      </from>
+  </body>
+  <footer>
+            <img style="margin-right: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
+               SPAJ | 2022   
+            <img style="margin-left: 5%;" class="dragao-fim" src="{% static './imagens/logo-footer.png' %}">
+        </footer> 
 </html>

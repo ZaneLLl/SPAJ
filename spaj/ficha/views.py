@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django import forms
 from django.db.models import Q
-from .forms import NovaFicha, NovaAventura
+from .forms import NovaFicha, NovaAventura,NovoEquipamento
 from django.core.paginator import Paginator
 from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView
 from django.views.generic.edit import FormView
@@ -46,7 +46,7 @@ def set_ficha(request):
             Luta = int(request.POST.get('lutahtml'))
             pericia = (form.cleaned_data.get('conter_pericia'))
             equipamento = (form.cleaned_data.get('possuir_equipamento'))
-
+            classe_social = (form.cleaned_data.get('classe_social'))
 
             if len(pericia) > Conhecimento:
                 form = NovaFicha(request.POST)
@@ -72,12 +72,13 @@ def set_ficha(request):
                     Vitalidade = Vitalidade,
                     Força = Força,
                     Luta = Luta,
+                    classe_social = classe_social
                     )
                 ListaUser = aventuras.objects.get(nomeAventura = novaFicha.id_aventura)
                 print(ListaUser)
                 l = ListaUser.jogar_aventura.all()
                 print(l)
-                if request.user.id in l:
+                if request.user in l:
 
                     form = NovaFicha(request.POST)
                     context = {
@@ -283,7 +284,10 @@ class fichasListview(LoginRequiredMixin, ListView):
     template_name = 'biblioteca-fichas.html'
 
     def get_queryset(self):
-        return fichas.objects.filter(preencher_ficha=self.request.user.id)
+        if self.request.user.is_superuser == 1:
+            return fichas.objects.all()
+        else:
+            return fichas.objects.filter(preencher_ficha=self.request.user.id)
 
 
 class periciasListview(LoginRequiredMixin, ListView):
@@ -306,39 +310,44 @@ class periciasDeletview(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     template_name = 'pericia-excluir.html'
     success_url = reverse_lazy('pericia')
 
+@login_required(login_url='http://127.0.0.1:8000/login/')
 def setAventura(request):
-    if request.method == 'GET':
-        form = NovaAventura()
-        context = {
-            'form': form
-        }
-        return render (request, 'aventura-register.html', context = context)
-
-    else:
-        form = NovaAventura(request.POST)
-        context = {
-            'form': form
-        }
-        if form.is_valid():
-            novaAventura = aventuras.objects.create(
-
-                nomeAventura = form.cleaned_data.get('nomeAventura'),
-                guia_de_ambiente = form.cleaned_data.get('guia_de_ambiente'),
-                historia_aventura =  form.cleaned_data.get('historia_aventura')
-                )
-
-            novaAventura.save()
-            return redirect('aventuras/')
+    if request.user.is_superuser == 1:
+        if request.method == 'GET':
+            form = NovaAventura()
+            context = {
+                'form': form
+            }
+            return render (request, 'aventura-register.html', context = context)
 
         else:
             form = NovaAventura(request.POST)
             context = {
-                    'form': form
+                'form': form
             }
-            messages.error(request, 'Dados incorretos')
-            return render(request, 'aventura-register.html', context=context)
+            if form.is_valid():
+                novaAventura = aventuras.objects.create(
 
-class aventurasListview(ListView):
+                    nomeAventura = form.cleaned_data.get('nomeAventura'),
+                    guia_de_ambiente = form.cleaned_data.get('guia_de_ambiente'),
+                    historia_aventura =  form.cleaned_data.get('historia_aventura')
+                    )
+
+                novaAventura.save()
+                return redirect('http://127.0.0.1:8000/ficha/aventuras/')
+
+            else:
+                form = NovaAventura(request.POST)
+                context = {
+                        'form': form
+                }
+                messages.error(request, 'Dados incorretos')
+                return render(request, 'aventura-register.html', context=context)
+    else:
+        messages.error(request, 'Usuario sem permissão')
+        return redirect('http://127.0.0.1:8000/')
+class aventurasListview(LoginRequiredMixin,ListView):
+    login_url = ('http://127.0.0.1:8000/login/')
     model = aventuras
     template_name = 'biblioteca-aventuras.html'
 
@@ -346,7 +355,7 @@ class aventurasListview(ListView):
         context = super(aventurasListview, self).get_context_data(**kwargs)
         context['user'] = self.request.user
         return context
-class aventurasDeletview(GroupRequiredMixin, DeleteView):
+class aventurasDeletview(LoginRequiredMixin,GroupRequiredMixin, DeleteView):
     login_url = ('http://127.0.0.1:8000/login/')
     model = aventuras
     group_required = u'Mestre'
@@ -354,12 +363,63 @@ class aventurasDeletview(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('aventuras')
 
 
+@login_required(login_url='http://127.0.0.1:8000/login/')
 def getAventura(request, pk):
     aventura = aventuras.objects.filter(pk=pk)
+    jogadores = fichas.objects.filter(id_aventura=pk)
     context={
-        'aventura': aventura
+        'aventura': aventura, 'jogadores': jogadores
     }
     return render(request, 'get-aventuras.html', context=context)
 
+def Combate(request):
+    return render(request, 'Combate.html')
+
+
+
+@login_required(login_url='http://127.0.0.1:8000/login/')
 def setEquipamento(request):
-    return render(request, 'equipamento-register.html')
+    if request.method == 'GET':
+        form = NovoEquipamento()
+        context = {
+            'form': form
+        }
+        return render(request, 'equipamento-register.html', context=context)
+    else:
+        form = NovoEquipamento(request.POST)
+        context = {
+            'form': form
+        }
+        if form.is_valid():
+            novoEquipamento = equipamentos.objects.create(
+                nome_equi = form.cleaned_data.get('nome_equi'),
+                dano = form.cleaned_data.get('dano'),
+                defesa = form.cleaned_data.get('defesa'),
+                descrição = form.cleaned_data.get('descrição'),
+                combate = form.cleaned_data.get('combate')
+            )
+            novoEquipamento.save()
+            return redirect('http://127.0.0.1:8000/ficha/equipamentos/')
+
+        else:
+            form = NovoEquipamento(request.POST)
+            context = {
+                'form': form, 'messages': messages.error(request, 'Dados incorretos')
+            }
+            return render(request, 'aventura-register.html', context=context)
+
+class equipamentosListview(LoginRequiredMixin, ListView):
+    login_url = ('http://127.0.0.1:8000/login/')
+    model = equipamentos
+    template_name = 'biblioteca-equipamentos.html'
+    def get_context_data(self, **kwargs):
+        context = super(equipamentosListview, self).get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+class equipamentosDeleteview(GroupRequiredMixin, DeleteView):
+    login_url = ('http://127.0.0.1:8000/login/')
+    model = equipamentos
+    group_required = u'Mestre'
+    template_name = 'equipamentos-excluir.html'
+    success_url = reverse_lazy('equipamentos')
+

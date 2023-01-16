@@ -1,26 +1,30 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-*{
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">* {
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
 }
 
-body{
+body {
     background: linear-gradient(to botton, #173840, #011C26);
     background-color: #011C26;
     font-family: 'Roboto', sans-serif;
-}
-header{
-    font-size: 35%;
-    font-style: oblique;
-    color: #1b0202;
-    text-align: center;
+    color: #f2f2f2;
 }
 
-header{
+header {
+    font-size: 35%;
+    font-style: oblique;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+}
+
+section {
+    margin-top: 4%;
+    margin-bottom: 5%;
+}
+
+header {
     color: #011C26;
     font-size: xx-large;
     width: 100%;
@@ -29,34 +33,37 @@ header{
     border: 2px solid #881616;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-footer{
-    margin-top: 8%;
+
+footer {
     color: #f2f2f2;
     background-color: #011C26;
-	text-align:center;
+    text-align: center;
     border: hidden;
     font-size: medium;
 }
-p{
+
+p {
     color: #f2f2f2;
 }
-button{
+
+button {
     color: #f2f2f2;
     background-color: #011C26;
     border: 1px solid #881616;
     margin: 4px;
+    margin-top: 2%;
     border: 1px solid #BF1111;
-    width: 60%;
-    height: 5%;
     border-radius: 10px;
 }
-.dragao-header{
+
+.dragao-header {
     margin-left: 0%;
     position: relative;
 }
-#bloco-vermelho{
+
+#bloco-vermelho {
     position: relative;
-    padding-left: 10%;
+    padding-left: 8%;
     padding-right: 10%;
     padding-top: 1%;
     padding-bottom: 3%;
@@ -64,160 +71,237 @@ button{
     background-image: linear-gradient(-120deg, #881616 30%, #BF1111);
     color: #f2f2f2;
     width: 100%;
-    margin:0%;
-    box-shadow:5px 5px 5px rgba(0, 0, 0, 0.25);
+    margin: 0%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
-.frase_italico{
-    font-style: italic;
-    font-size: medium;
-    margin-right: 20%;
-    margin-bottom: 6%;
+.spaj-link {
+    color: #f2f2f2;
 }
+
+.spaj-link:hover {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
 
 /* tele menor celular */
-@media only screen and (max-width:767px){
+@media only screen and (max-width:767px) {
     h2 {
         font-size: 200%;
+        text-align: center;
     }
+
     p {
         text-align: center;
         font-size: 150%;
     }
-    header{
+
+    header {
         text-align: center;
-        padding-bottom: 25%;
+        padding-bottom: 2%;
         padding-right: 30px;
         padding-left: 30px;
         padding-top: 2%;
     }
-    .box-1{
-        margin-right: 10%;
+
+    #dado_img {
+        margin-left: 15%;
+        width: 73%;
     }
-    .frase_italico{
-        padding-left: 10%;
+
+    .frase_italico {
         text-align: center;
         font-size: x-large;
         width: 100%;
-        margin-left: 2%;
         margin-bottom: 10%;
     }
-    #texto-final{
+
+    #texto-final {
         padding: 0%;
         margin: 0%;
     }
-    .dragao-header{
-        width: 5%;
-        padding: 0;
+
+    .dragao-header {
+        width: 14%;
     }
-    .dragao-fim{
+
+    .dragao-fim {
         margin: 0;
-        width: 5%;
+        width: 8%;
     }
-    button{
+
+    .botao-login {
+        margin-left: 16%;
+    }
+
+    .bt-3 {
+        margin-left: 15%;
+    }
+
+    button {
         font-size: 150%;
-        margin-left: 10%;
+        margin-left: 5%;
         margin-bottom: 1%;
         padding-bottom: 0%;
         text-align: center;
-        width: 90%;
-        height: 7%;
+        width: 70%;
+        height: 9%;
     }
 }
 
 /* tela média 1 tablet */
-@media only screen and (min-width:768px) and (max-width:991px){
+@media only screen and (min-width:768px) and (max-width:991px) {
     h2 {
-        font-size: 1.9rem;
+        font-size: 2.6rem;
+        text-align: center;
     }
-    header{
-        padding-bottom: 18%;
+
+    header {
+        padding-bottom: 2%;
     }
-    .dragao-header{
-        width: 9%;
+
+    .frase_italico {
+        margin-right: 20%;
+        margin-top: 5%;
+        margin-bottom: 8%;
     }
-    .dragao-fim{
-        width:2%;
-    }
+
     p {
-        margin-left: 10%;
+        margin-left: 2%;
         font-size: 2rem;
         text-align: center;
     }
-    #dado-img{
-        width: 80%;
-        height: 50%;
-        margin-top: 0%;
+
+    #dado_img {
+        width: 100%;
+        margin-left: 5%;
     }
-    button{
-        margin-left: 16%;
+
+    .bt-3 {
+        width: 80%;
+    }
+
+    button {
+        font-size: 1.6rem;
         text-align: center;
-        width: 60%;
-        height: 6%;
+        width: 50%;
+        height: 8%;
+    }
+
+    .dragao-header {
+        width: 9%;
+    }
+
+    .dragao-fim {
+        width: 10%;
+    }
+
+    .botao-login {
+        margin-left: 25%;
     }
 }
 
 /* tela média 2 monitor pequeno */
-@media only screen and (min-width:992px) and (max-width:1199px){
+@media only screen and (min-width:992px) and (max-width:1199px) {
     h2 {
-        font-size: 1.9rem;
+        font-size: 2.8rem;
+        padding-bottom: 1%;
+        text-align: center;
     }
-    header{
-        padding-bottom: 16%;
+
+    .frase_italico {
+        font-size: 2.4rem;
+        margin-top: 8%;
+        margin-bottom: 8%;
     }
-     .dragao-header{
-        width: 9%;
+
+    #dado_img {
+        margin-left: 10%;
+        width: 90%;
     }
-    .dragao-fim{
-        width: 2%;
+
+    header {
+        padding-top: 1%;
+        padding-bottom: 1%;
     }
+
     p {
-        font-size: 1rem;
+        font-size: 1.7rem;
         text-align: center;
     }
-    button{
-        margin-left: 20%;
+
+    .bt-3 {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    button {
+        font-size: 2rem;
         text-align: center;
-        width: 60%;
-        height: 6%;
+        width: 50%;
+        height: 10%;
+    }
+
+    .dragao-header {
+        width: 8%;
+    }
+
+    .dragao-fim {
+        width: 8%;
+    }
+
+    .botao-login {
+        margin-left: 25%;
     }
 }
 
 /* tela grande pc */
-@media only screen and (min-width:1199px){
+@media only screen and (min-width:1199px) {
     h2 {
-        font-size: 1.9rem;
+        font-size: 2.9rem;
+        text-align: center;
     }
-    header{
-        height: 18%;
-        padding-bottom: 14%;
-    }
-    p {
-        font-size: 1.3rem;
-        text-align:center;
 
+    header {
+        height: 20%;
     }
-    .dragao-header{
-        width: 9%;
+
+    .frase_italico {
+        margin-right: 5%;
+        margin-top: 6%;
+        margin-bottom: 5%;
+        font-size: 3rem;
     }
-    .dragao-fim{
-        width: 8%;
+
+    p {
+        font-size: 2rem;
+        text-align: center;
     }
-    #dado_img{
-    margin-top: 4%;
-    width: 60%;
-    margin-left: 26%;
-    top: 8%;
-    padding-bottom: 10%;
-}
+
+    .dragao-header {
+        width: 10%
     }
-    .bloco-botoes{
-    margin-top: 5%;
-    margin-left: 8%;
+
+    .dragao-fim {
+        width: 6%;
     }
-    button{
-        margin-left: 18%;
-        width: 40%;
-        height: 6%;
+
+    #dado_img {
+        margin-left: 10%;
+    }
+
+    .bt-3 {
+        margin-left: 8%;
+    }
+
+    button {
+        font-size: 2.7rem;
+        width: 80%;
+        height: 10%;
+    }
+
+    .botao-login {
+        margin-left: 11%;
     }
 }
